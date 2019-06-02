@@ -1,0 +1,721 @@
+<h1 id="introductiontothepythonprogramminglanguage">Introduction to the Python Programming Language</h1>
+
+<h4 id="zacharylewistowbesberkleemakesapril2019">Zachary Lewis-Towbes; BerkleeMakes; April 2019</h4>
+
+<p><br/></p>
+
+<h3 id="goals">Goals</h3>
+
+<p>By the end of this lesson, you’ll be able to:</p>
+
+<pre><code>Solve simple mathematical problems such as Project Euler Problem 1.
+Understand Python data types and syntax.
+Read logical operators in Python.
+</code></pre>
+
+<p>Getting started: </p>
+
+<p>We’ll use Python 3 and our mac terminal to run python. This requires a tiny bit of set up.</p>
+
+<p><br/></p>
+
+<h3 id="installingpython">Installing Python</h3>
+
+<p>First, we’ll run these lines:</p>
+
+<p><code>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code></p>
+
+<p><code>export PATH="/usr/local/opt/python/libexec/bin:$PATH"</code></p>
+
+<p><code>brew install python</code></p>
+
+<p>Now if we type:</p>
+
+<p><code>python3 --version</code></p>
+
+<p>The output will show our current version of python. For me this was 3.7.3, but it shouldn’t matter too much as long as it’s at least python 3.x.x.</p>
+
+<p>Python 3 is now installed on your machine! Finally, let’s install one more thing before we get going.</p>
+
+<p><br/></p>
+
+<h3 id="installingvscode">Installing VSCode</h3>
+
+<p>VSCode is a text editor designed for working with code. It’s released by microsoft but it works on mac, windows, and linux. 
+You should be able to download and install it easily at this link:
+[https://code.visualstudio.com/download] (https://code.visualstudio.com/download)</p>
+
+<p><br/></p>
+
+<h2 id="programminginpython">Programming in Python</h2>
+
+<h3 id="thepythonlanguage">The Python Language</h3>
+
+<p>Python is a programming language that is very <strong>high-level</strong>. Compared to some languages such as assemblers, and even other languages such as C and C++, Python is simple to read and write. This ease of use is at the expense of certain control over what you're writing. This makes it very effective for a few certain tasks </p>
+
+<ol>
+<li>Rapid development. Python makes it easy to make relatively complicated things quickly.</li>
+
+<li>Scripting. Python makes it easy to write simple operations that can make your life easier.</li>
+
+<li>Creativity. It doesn't take long to make an audio processor in Python. If you can think up a signal processing method that you can't implement in Max or your DAW, you can probably write it in Python in only a few minutes.</li>
+</ol>
+
+<p>The first thing to know is that to print a variable or a statement to the terminal, you can use the <code>print</code> command like this: <code>print('hello world!')</code>. In this case, it takes the string <code>'hello world!'</code> and prints it out to the terminal. The output of lesson0_0.py would be <code>hello world!</code>.</p>
+
+<h3 id="howtorunpythoncode">How to Run Python Code</h3>
+
+<p>Some languages like C and C++ are <strong>compiled</strong>. This means that to execute the code you must tell the computer to turn the program into machine code. Python is not like this -- it is <strong>interpreted</strong>. </p>
+
+<p>There are two basic ways to run Python: In a .py file and in "interactive mode". Let's try both.</p>
+
+<h4 id="runningapyfile">Running a .py File</h4>
+
+<p>Using the Terminal, go to the directory <code>PythonCurriculum/PythonFiles/</code>. Open <code>L1-0.py</code> in a text editor. You'll see that it has one line, which we've discussed above: <code>print('hello world!')</code>. Now, in the terminal, type <code>python3 L1-0.py</code>. You'll see <code>hello world!</code> on the terminal. </p>
+
+<h4 id="usinginteractivemode">Using Interactive Mode</h4>
+
+<p>Now, in a new terminal tab or window, type <code>python3</code>. You should see <code>&gt;&gt;&gt;</code> before your cursor instead of <code>$</code>. Next, type <code>print('hello world!')</code>. You'll see another line pop up with <code>hello world!</code>, just like when you ran the file. To exit the interpreter and return to the Bash shell (i.e. terminal), type <code>exit()</code> or type control + d.</p>
+
+<p><br/></p>
+
+<p>As you may have surmised, these two methods do the same thing, but one is typed out line-by-line and the other simply takes each line from the file. Other than that they are identical. For very short programs like those that we'll use to discuss types, we'll use interactive mode, but for longer projects this can become tedious at best and quite often unusable. </p>
+
+<p><br/></p>
+
+<h3 id="types">Types</h3>
+
+<p>If you're writing a program, you'll need to store data at some point. Maybe you're trying to process audio and you want to store your audio signal, or maybe you're trying to plan your schedule and you'd like to store information about what time a class takes place. You'll store these pieces of information in variables. For instance, if you're trying to add two numbers, you'd have to store a few things in different places. We'll see this below.</p>
+
+<p>Unlike many languages, Python doesn't require that you declare a variable's type; it figures out the type using context and syntax. If you're already familiar with types like int, float, string, Bool, and list, you can skim through this section. </p>
+
+<h4 id="numericaltypes">Numerical types</h4>
+
+<h5 id="integers">Integers</h5>
+
+<p>Python gives us access to a few different types that are specifically meant to be used as numbers. Here's an example of using integers:</p>
+
+<p><code>a = 1</code></p>
+
+<p><code>b = 2</code></p>
+
+<p><code>c = a + b</code></p>
+
+<p><code>print(c)</code></p>
+
+<p>this would print <code>3</code> to the command line.</p>
+
+<p>We've just stored three numbers: a, b, and c. Specifically, we're storing integers. In Python, integers are 24 bits and they are <strong>signed</strong> meaning that they offer both positive and negative numbers. For instance, if we changed our code to:</p>
+
+<p><code>a = 1</code></p>
+
+<p><code>b = 2</code></p>
+
+<p><code>c = a - b</code></p>
+
+<p>c is equal to -1. </p>
+
+<p>In the current version of Python, there is no size limit for integers except the size of your avaliable memory (i.e. very, very large: if n is the amount of avaliable memory in gb, you could have an int up to <code>2**(n*(10**9))</code> -- too big to worry about.)</p>
+
+<h5 id="floats">Floats</h5>
+
+<p>Similarlty, we can use decimal points using <strong>floating point</strong> numbers, or floats. In python, floats work almost exactly the same way as ints:</p>
+
+<p><code>a = 1.5</code></p>
+
+<p><code>b = 2.5</code></p>
+
+<p><code>c = a - b</code></p>
+
+<p><code>print(c)</code>  </p>
+
+<p>this would output <code>-1.0</code> to the command line.</p>
+
+<h5 id="strings">Strings</h5>
+
+<p>A string is a series of characters. For instance, "hello world" is a string. In python, Strings can be designated with either '' or "" symbols. They can express any set of symbols, but in some cases these symbol sets are just letters, characters, and numbers, while in others they can include things like emoji. Let's declare a string:</p>
+
+<p><code>a = 'hello'</code></p>
+
+<p>Now, if we had:</p>
+
+<p><code>print(a)</code></p>
+
+<p>the output would be:</p>
+
+<p><code>hello</code></p>
+
+<p>Interestingly, we can do a few confusing things to strings. For instance:</p>
+
+<p><code>a = 'hello'</code></p>
+
+<p><code>b = 'world'</code></p>
+
+<p><code>c = a+b</code></p>
+
+<p>What should this output? </p>
+
+<p>Python does something rather helpful and clever when we try to add strings together. It simply appends the second string to the end of the first.</p>
+
+<p>The above code would output <code>hello world</code>. This can be very helpful.</p>
+
+<p>There are some other fun things we can do wtih strings but we'll save them for later.</p>
+
+<h5 id="boolean">Boolean</h5>
+
+<p>Boolean might sound like a complicated word, but it's just another name for <strong>true or false</strong>. Boolean variables are either <code>True</code> or <code>False</code>. For instance, if you were making a video game and you wanted to know whether it was night or day in your virual world, you might say:</p>
+
+<p><code>is_daytime = False</code></p>
+
+<p>for when it's night time. </p>
+
+<p>There are many things you can do to boolean variables in python. We can use logic such as <code>not</code>, <code>and</code>, and <code>or</code> like this:</p>
+
+<p><code>a = not False</code>
+<code>b = not True</code></p>
+
+<p>As you may have guessed, not simply switches the variable from <code>True</code> to <code>False</code>, or from <code>False</code> to <code>True</code>. in this case, the value of <code>a</code> is <code>True</code> and the value of <code>b</code> is <code>False</code>. </p>
+
+<p><code>not</code> is the only thing we can do to booleans that only needs one input. <code>and</code> and <code>or</code> both take two inputs. </p>
+
+<p><code>and</code> returns <code>False</code> if either of the two inputs is <code>False</code>. Let's see this in action:</p>
+
+<p><code>a = True and True # a is True</code></p>
+
+<p><code>b = True and False # b is False</code></p>
+
+<p><code>c = False and True # c is False</code></p>
+
+<p><code>d = False and False # d is False</code></p>
+
+<p><br/></p>
+
+<p><code>or</code> returns <code>True</code> if either of the two inputs is <code>True</code>.</p>
+
+<p><code>a = True or True # a is True</code></p>
+
+<p><code>b = True or False # b is True</code></p>
+
+<p><code>c = False or True # c is True</code></p>
+
+<p><code>d = False or False # d is False</code></p>
+
+<p><br/></p>
+
+<p>Booleans are sometimes used as types of variables, such as in the <code>is_daytime = False</code> example, but more often they are used when comparing two things. We'll talk about that in the <strong>comparators</strong> section below.</p>
+
+<h5 id="lists">Lists</h5>
+
+<p>Lists are just what they sound like. They are a series of other types. that can be used to store sequential information. They are <strong>ordered</strong> in that they cannot change order without you telling them to. They are not to be confused with arrays from some other programming languages like C though, for several reasons, most importantly that Python lists can change size after being created. </p>
+
+<p>Lsts are declared with square brackets []. We can create an empty list like this:</p>
+
+<p><code>a = []</code></p>
+
+<p>Lists are resizable. If we wanted to put new information at the end of a list, we could do so using <code>a.append()</code>. This simply puts the value between the parentheses at the end of <code>a</code>. </p>
+
+<p>Let's say we took a list:</p>
+
+<p><code>a = [1, 2, 3, 4, 5, 6]</code></p>
+
+<p>If we wanted to see what value is at a given location in the list, we can do so like this:</p>
+
+<p><code>b = a[0]</code></p>
+
+<p>this takes the first item in the list and sets <code>b</code> to it. </p>
+
+<p>We can even use negative numbers to access the end of the list. If you wanted the last item in a list, you could use:</p>
+
+<p><code>b = a[-1]</code>.</p>
+
+<p>You can also select slices of a list using this format</p>
+
+<p><code>b = a[0:2]</code>.</p>
+
+<p><code>b</code> is now equal to <code>[1, 2, 3]</code> because it has taken a slice of the list from index 0 to index 2.</p>
+
+<p><br/></p>
+
+<p><em>Lists can contain any data type</em> inside them. For instance:</p>
+
+<p><code>a = ['hello', 'world']</code></p>
+
+<p><code>b = [True, False]</code></p>
+
+<p><code>c = [1.135235743, 8.9512057342, 41.4234]</code></p>
+
+<p>Lists can even share multiple different data types:</p>
+
+<p><code>d = [1, 2, 'hello', 'world', True, False, 1.135235743, 8.9512057342, 41.4234</code></p>
+
+<p>To make things even worse, lists can also contain other lists inside them (infinitely):</p>
+
+<p><code>e = [[1, 2], [3, 4]]</code></p>
+
+<p>This seems too complicated for some purposes, but it's actually quite useful. Consider processing a mono audio stream. As we know, audio is just a series of numbers, most often floating-point numbers. We could imagine a very short audio stream that looks like this:</p>
+
+<p><code>[0.0, 0.09280161904462148, 0.18560323808924295, 0.27840485714841634, 0.3712064761784859]</code></p>
+
+<p>What if we had a stereo signal though? If we're in stereo, we can use lists inside lists to help us. Our outer list will have two items. Left and Right channels. Our inner list will have the samples from each channel:</p>
+
+<p><code>[[0.0, 0.09280161904462148, -0.18560323808924295, 0.27840485714841634, 0.3712064761784859], [0.0, 0.1005799346968066, -0.2011598693936132, 0.3017398040904197, -0.4023197387872264]]</code></p>
+
+<p>This can help us organize our data more effectively. </p>
+
+<p>To access items of lists inside lists is quite intuitive:</p>
+
+<p><code>a = [[0.0, 0.09280161904462148, -0.18560323808924295, 0.27840485714841634, 0.3712064761784859], [0.0, 0.1005799346968066, -0.2011598693936132, 0.3017398040904197, -0.4023197387872264]]</code></p>
+
+<p>if we wanted to find the 3nd sample of the 2nd channel, we would write:</p>
+
+<p><code>a[1][2]</code>. </p>
+
+<p>In this case, that would be <code>0.1005799346968066</code>.</p>
+
+<p>Several other things can be done to lists, but we won't get into those for today. There are also some third-party extensions to python that replace the functionality of lists, and we'll talk about one of these briefly in the next lesson.</p>
+
+<p>Strings are essentially lists of characters. We can even access the characters of strings the same way we access items of lists:</p>
+
+<p><code>a = "hello world"</code></p>
+
+<p><code>b = a[0]</code></p>
+
+<p>now <code>b</code> is equal to <code>'h'</code>.</p>
+
+<h5 id="dictionaries">Dictionaries</h5>
+
+<p>Often times, we need to use python to relate one value to another. For instance, if we had a list of cars and the year they were made, we could store that data in a dictionary:</p>
+
+<p><code>a = {'toyota corolla': 1995, 'VW bug': 1965, 'Honda Pilot': 2001}</code></p>
+
+<p>We can access these values several ways, but the primary way is:</p>
+
+<p><code>b = a['toyota corolla']</code></p>
+
+<p><code>print(b)</code></p>
+
+<p>would print <code>1995</code>.</p>
+
+<p>We won't be using dictionaries today, but if you want to learn more, see any of the links at the bottom of this turorial.</p>
+
+<p><br/></p>
+
+<h5 id="moreaboutstrings">More about strings</h5>
+
+<p>Strings in python are great. They allow us to do all sorts of things very easily using these extended functionalities:</p>
+
+<pre><code>a = 'hello '
+b = 'world'
+
+c = a + b
+</code></pre>
+
+<p>as you've probably come to expect by now,<code>c</code> is <code>'hello world'</code>. the <code>+</code> operator simply tells the string to add the second string to the end of the first.</p>
+
+<p>Similarly,</p>
+
+<pre><code>a = 'hello '
+b = 'world'
+
+c = (a * 2) + b
+</code></pre>
+
+<p>now <code>c</code> is <code>'hello hello world'</code>. The <code>*</code> operator just repeats a string.</p>
+
+<h3 id="operators">Operators</h3>
+
+<p>Operators in python consist of: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>**</code>, <code>//</code>, <code>%</code>, <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>//=</code>, <code>%=</code>, <code>**=</code>, <code>in</code>, <code>not in</code>. There are a few more that are useful in some cases, but we'll stick with these for now. </p>
+
+<h4 id="arithmeticoperators">Arithmetic Operators</h4>
+
+<p>Python's arithmetic operators are <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>**</code>, <code>//</code>, <code>%</code>. The first four work just as you'd expect -- add, subtract, multiply, and divide. </p>
+
+<p><br/></p>
+
+<p><code>**</code> is the exponent operator. This works as expected: </p>
+
+<p><code>a = 3</code></p>
+
+<p><code>b = a**2</code></p>
+
+<p><code>b</code> is now equal to 9.</p>
+
+<p><br/></p>
+
+<p><code>//</code> is called floor division. If you're not familiar with it, floor division is just division that disregards everything after the decimal point. For instance:</p>
+
+<p><code>a = 12 // 5</code> </p>
+
+<p><code>a</code> is now equal to 2, because 12 ÷ 5 = 2.4, and the floor returns the closest integer to the true value from below.</p>
+
+<p><br/></p>
+
+<p><code>%</code> is the modulo operator. This returns the remainder of a division performed on the two inputs. It's incredibly useful for many purposes such as making very large numbers manageable. Let's use it:</p>
+
+<p><code>a = 12 % 3</code></p>
+
+<p>Because 12 ÷ 3 = 4, and has no remainder, <code>a</code> is equal to <code>0</code>.</p>
+
+<p>If we have a huge number such as:</p>
+
+<p><code>a = 1230581235981275987192378569815</code>
+and we want to see if it's divisible by 12000, we would run </p>
+
+<p><code>b = a % 12000</code>. </p>
+
+<p>now <code>b</code> is equal to <code>1815</code>.</p>
+
+<p><br/></p>
+
+<h4 id="definitionoperators">Definition Operators</h4>
+
+<p>We've already been using one definition operator all the time. <code>=</code> is the most self-explanitory definition operator. it simply sets the value of a variable equal to whatever is after it. The other definition operators are <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>//=</code>, <code>%=</code>, <code>**=</code>. These are quite simply shortcuts for changing a value in terms of itself. Let's look:</p>
+
+<pre>
+a = 1
+b = 2
+a = a + b
+</pre>
+
+<p>at this point, it's clear that <code>a</code> is equal to 3. Let's try using the shortcut:</p>
+
+<pre>
+a = 1
+b = 2
+a += b
+</pre>
+
+<p>This does the exact same thing. The other operators just do their respective operations and work the exact same way otherwise. </p>
+
+<h4 id="inandnotin">in and not in</h4>
+
+<p>These are also very intuitive. If you have a list:</p>
+
+<p><code>a = [1, 2, 3, 4]</code></p>
+
+<p>and you wanted to check whether the number <code>0</code> is in the list, you could say:</p>
+
+<p><code>0 in a</code></p>
+
+<p>and it would return False. If you instead said</p>
+
+<p><code>1 in a</code></p>
+
+<p>it would return True. </p>
+
+<p><code>not in</code> is simply the opposite of in:</p>
+
+<p><code>0 not in a</code></p>
+
+<p>is True,</p>
+
+<p><code>1 not in a</code> </p>
+
+<p>is False.</p>
+
+<h3 id="comparators">Comparators</h3>
+
+<p>Comparators are technically operators but they are used differently. Comparators, as it might seem, compare things. The comparators of Python are <code>==</code>, <code>!=</code>, <code>&lt;=</code>, <code>&lt;</code>, <code>&gt;=</code>, and <code>&gt;</code>. They make good sense. If <code>a = 20</code> and <code>b = 10</code>:</p>
+
+<p><code>a == b</code> returns False</p>
+
+<p><code>a != b</code> returns True</p>
+
+<p><code>a &lt;= b</code> returns False</p>
+
+<p><code>a &lt; b</code> returns False</p>
+
+<p><code>a &gt;= b</code> returns True</p>
+
+<p><code>a &gt; b</code> returns True</p>
+
+<p>In words, they each mean:</p>
+
+<p><code>a == b</code> is <code>a</code> equal to <code>b</code>?</p>
+
+<p><code>a != b</code> is <code>a</code> unequal to <code>b</code>?</p>
+
+<p><code>a &lt;= b</code> is <code>a</code> less than or equal to <code>b</code>?</p>
+
+<p><code>a &lt; b</code> is <code>a</code> less than <code>b</code>?</p>
+
+<p><code>a &gt;= b</code> is <code>a</code> greater or equal to <code>b</code>?</p>
+
+<p><code>a &gt; b</code> is <code>a</code> greater than <code>b</code>?</p>
+
+<p>They'll always return either <code>True</code> or <code>False</code>. </p>
+
+<p>The same rules apply to any other type than int.</p>
+
+<p>NOTE: using <code>==</code> or <code>!=</code> on floats is generally a bad idea. Even if it seems to work, this can cause problems because of the implementation of floats in most languages, as they are inherently imprecise. </p>
+
+<p><br/>
+<br/></p>
+
+<h3 id="ifelifelse">if, elif, else</h3>
+
+<p>Often times during programming, we must change do certain operations based on certain conditions. For instance, in the example of a video game where it could be daytime or nighttime, we had this:</p>
+
+<p><code>is_daytime = False</code></p>
+
+<p>which indicates that it is night time. We might have a different background for our game if it's night or day. We could use <code>if</code> and <code>else</code> to change this background:</p>
+
+<pre>
+if is_daytime:
+   # set background image to day here
+else:
+    #set background image to night here
+</pre>
+
+<p>In python, these sorts of statements depend on whitespace. each encapsulating <code>if</code>, <code>elif</code>, or <code>else</code> statement must be followed by a <code>:</code> and then each line that applies to it must be indented. There are <strong>no brackets</strong> like there are in other languages. The statement is over at the next unindented line. The same thing applies to function definitions, for and while loops, and several other cases. </p>
+
+<p>You can still nest these statements within one another, for instance:</p>
+
+<pre>
+if is_daytime:
+    if player_outside:
+        # set background image to day here
+    else:
+        # player is inside
+else:
+    # set background image to night here
+</pre>
+
+<p>The <code>if</code> and <code>elif</code> statements should be followed by a statement whose result is either <code>True</code> or <code>False</code>. While it is possible to use other values as input to an if statement, this can create problems when it comes to cross-platform and cross-version support. Avoid this if at all possible. </p>
+
+<p>(An exception to this case is that <code>while</code> loops which are supposed to act like <code>while True:</code> are often written as <code>while 1:</code>, inherited from the C language, which doesn't have boolean types and instead uses integers either 1 or 0 for True and False respectively.)</p>
+
+<p><br/></p>
+
+<h3 id="forandwhile">For and While</h3>
+
+<p>Python offers two types of loops: for <code>loops</code> and <code>while</code> loops. For loops are formatted like this:</p>
+
+<pre>
+for i in range(10):
+    print(i)
+</pre>
+
+<p>This statement is made up of a few new parts, so let's start with <code>range(10)</code>. This simply returns the list of integers counting up to 9 from 0. In this case, we would get <code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code> (in actuality it doesn't return a list exactly but that's okay for now.) If we ran:</p>
+
+<pre>
+for i in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]:
+    print(i)
+</pre>
+
+<p>we would get </p>
+
+<pre>
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre>
+
+<p>The loop itself simply iterates through the list and loops until the list is over. </p>
+
+<p><br/></p>
+
+<p>While loops are intuitive. They work like this:</p>
+
+<pre>
+a = 40
+while a > 0:
+    a -= 1
+</pre>
+
+<p>This code would count from 40 down to 0, and the loop would stop once the condition after <code>while</code> was False. </p>
+
+<p>It's often tempting to use <code>while</code> loops, but most of the time using a <code>for</code> loop is the best practice.</p>
+
+<p><br/></p>
+
+<p>The control flow of loops can be altered while in the loop using <code>break</code>, <code>continue</code>, and <code>pass</code>. </p>
+
+<p><code>break</code> breaks out of a loop. if we ran:</p>
+
+<pre>
+a = 0
+while True:
+    a += 1
+    if a == 10:
+        break
+</pre>
+
+<p>the loop would count to 10 and then end. </p>
+
+<p><code>continue</code> just skips the rest of an iteration of a loop, starting again from the top.</p>
+
+<p><code>pass</code> does nothing. This might seem useless, but it's useful when you need a placeholer. If I'm working on building a feature, I might set up my file and put <code>pass</code> where I'm not sure what will go there. This applies both to loops, if/else statements, functions, and more that we'll talk about soon.</p>
+
+<p><br/>
+<br/></p>
+
+<h3 id="functions">Functions</h3>
+
+<p>Okay, so now that we're through with the nuts and bolts, we can get to the good stuff: functions and classes. </p>
+
+<p>Functions are simply pieces of code that are meant to be reused. Instead of writing in every line of code to make a filter, for instance, you can simply write a function:</p>
+
+<pre>
+def filter_audio(audio_to_filter, cutoff_frequency, slope):
+    # some logic that filters the audio here
+
+
+audioFiles = []
+# put a bunch of audio files in audioFiles
+
+for file in audioFiles:
+    filter_audio(audio_to_filter, cutoff_frequency, slope)
+</pre>
+
+<p>Functions are defined with <code>def</code> followed by the name of the function. Then, in parentheses, the function's arguments, then a <code>:</code>. A function can have no arguments, or as many as you'd like. The arguments can be any type. </p>
+
+<p>Argumnents are the inputs to a function. They are variables that are only used within the function. You cannot access them from any part of the code outside of the function. </p>
+
+<p>To get information back from a function, you can use the <code>return</code> keyword. </p>
+
+<p>Let's write a function that checks whether a number is divisible by three.</p>
+
+<pre>
+def divisibleByThree(number):
+    if number % 3 == 0:
+        return True
+    else:
+        return False
+</pre>
+
+<p>If we had this function, we could do the following:</p>
+
+<p><code>a = divisibleByThree(1)</code></p>
+
+<p><code>b = divisibleByThree(6)</code></p>
+
+<p><code>a</code> is now <code>False</code> and <code>b</code> is now <code>True</code>.</p>
+
+<p>As you can see, when you want to use a function, you just use parentheses after it containing the arguments you'd like to give it.</p>
+
+<p>Let's write a function that checks to see if someone has a class at a certain time. Here's what we'll start with:</p>
+
+<p>We're given a list: <code>Schedule = []</code></p>
+
+<p><code>Schedule</code> is filled with lists: <code>Schedule = [[], [], [], [], [], [], []]</code></p>
+
+<p>Each sub-list of Schedule represents a time block. For each class scheduled, another list is added with two integers: the start time and end time (we'll stick to on the the hours and not worry about minutes). For instance, if we had a class from 9 AM to 11 AM, our schedule would look like:</p>
+
+<p><code>Schedule = [[9, 11]]</code></p>
+
+<p>If we added another class from 2-4, we would see that:</p>
+
+<p><code>Schedule = [[9,11],[14,16]]</code></p>
+
+<p>If we wanted to make sure that a class isn't scheduled overlapping any other class, we could write a function. This function should make sure that our Schedule and our ClassTime fulfill a few characteristics:</p>
+
+<ol>
+<li>The new class cannot <em>start</em> during an existing class</li>
+
+<li>The new class cannot <em>end</em> during an existing class</li>
+
+<li>The new class is a valid number of hours (i.e. non-negative, not exceeding 24, etc)</li>
+</ol>
+
+<p>Let's call this function <code>AddClass</code>. It's arguments are <code>Schedule</code> and <code>NewClass</code>. We can see that <code>AddClass(Schedule, NewClass)</code> could be implemented like this:</p>
+
+<pre>
+def AddClass(Schedule, NewClass):
+    for Class in Schedule:
+        if (NewClass[0] < Class[0] and NewClass[0] > Class[1]):
+            # NewClass does not start during Class
+        else:
+            print('Error: NewClass starts during an existing Class')
+            return 1
+
+        if (NewClass[1] < Class[0] and NewClass[1] > Class[1]):
+            # NewClass does not end during Class
+        else:
+            print('Error: NewClass ends during an existing Class')
+            return 1
+
+    print('NewClass doesn't interfere with any other classes. Adding class to schedule...')
+    Schedule.append(NewClass)
+</pre>
+
+<p>We could then add some helpful precautions to make sure that there are no random errors:</p>
+
+<pre>
+def AddClass(Schedule, NewClass):
+    for i in NewClass:
+        if i > 24:
+            print('NewClass contains a time higher than 24! Fix that.')
+            return 1
+        if i < 0: 
+            print('NewClass contains a negative number. That doesn't make any sense.')
+            return 1
+        if type(i) != int:
+            print('NewClass can only contain integers.')
+
+
+    for Class in Schedule:
+        if (NewClass[0] < Class[0] and NewClass[0] > Class[1]):
+            # NewClass does not start during Class
+        else:
+            print('Error: NewClass starts during an existing Class')
+            return 1
+
+        if (NewClass[1] < Class[0] and NewClass[1] > Class[1]):
+            # NewClass does not end during Class
+        else:
+            print('Error: NewClass ends during an existing Class')
+            return 1
+
+    print('NewClass doesn't interfere with any other classes. Adding class to schedule...')
+    Schedule.append(NewClass)
+</pre>
+
+<p>For an extra exercise, we can look at a recursive function. Recursive functions call themselves. This is sometimes a tedious mess, but other times it's necessary to solve a problem, or to solve it faster. For instance, if you'd like to try something else, come up with a non-recursive algorithm to come up with the nth member of the fibbonaci series. While it's possible, the fibbonaci series is an inherently recursive problem. The same is true of finding the factorial of a number. While there isn't necissarily a function that can only be defined recursively, there are functions that can only be defined recursively assuming there is a limited amount of memory. </p>
+
+<p>You may also know that any number whose digits add up to a number divisible by three is also divisible by three. Let's rewrite our function to use this rule. Before we do this, we must know one thing: we can use functions like <code>list()</code> and <code>str()</code> to make one type into another. For instance, <code>str(100)</code> is equal to <code>'100'</code>. We can similarly do <code>list('100')</code>, which returns <code>['1', '0', '0']</code>. Let's do that here:</p>
+
+<pre>
+def divisibleByThree(number):
+    sum = 0
+    for i in list(str(number)):
+        sum += int(i)
+
+    if len(str(sum)) > 1:
+        if divisibleByThree(sum) == True:
+            return True
+    else:
+        if (sum == 9 or sum == 6 or sum == 3):
+            return True
+        else:
+            return False
+</pre>
+
+<p>Functions are the bread and butter of modern computing. Almost everything is done in a function. The new expansion built off of functions, however, are classes. </p>
+
+<p><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/></p>
+
+<h3 id="review">Review</h3>
+
+<p>At this point, we'll stop learning about Python basic concepts and begin talking about how we can use them. Let's look at a few problems: </p>
+
+<pre><code>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23. Find the sum of all the multiples of 3 or 5 below 1000.
+</code></pre>
+
+<p>We can easily look at this problem and tell that we won't be able to solve it by hand. There are just too many numbers between 0 and 1000. Can you figure out how to do this? Write program that calculates the answer.</p>
+
+<p>When you're done, modify your code so that it is in a function which finds the sum of all multiples of 3 and 5 between 0 and <code>n</code>. </p>
+
+<p>Then modify that function to find the sum of the multiples of any two positive integers <code>a</code> and <code>b</code> between 0 and <code>n</code>. </p>

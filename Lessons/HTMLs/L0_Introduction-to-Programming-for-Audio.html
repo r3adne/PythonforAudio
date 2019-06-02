@@ -1,0 +1,277 @@
+<h1 id="introductiontoprogrammingforaudio">Introduction to Programming for Audio</h1>
+
+<h4 id="zacharylewistowbesberkleemakesmay2019">Zachary Lewis-Towbes; BerkleeMakes; May 2019</h4>
+
+<p><br/></p>
+
+<h3 id="goals">Goals</h3>
+
+<p>By the end of this lesson, you'll:</p>
+
+<ul>
+<li>Understand the concept of low- and high-level programming languages</li>
+
+<li>Understand the very basics of computing at a low level</li>
+
+<li>Learn about some of the uses of software in audio</li>
+
+<li>Learn the basics of the Mac and/or Linux command line (Terminal)</li>
+</ul>
+
+<h3 id="whatisacomputer">What is a Computer?</h3>
+
+<p>While this may be review for some people, let's clarify exactly how our computer works. </p>
+
+<p>The main functional components of a computer for our purposes are the Processor, the Memory, and the Storage. </p>
+
+<p><strong>Memory</strong> is where our computer stores information it is using. It's relatively fast to read data from memory. We can imagine memory as an array of bins of which we can read and edit the contents. When you turn off your computer, the contents of the memory is deleted. This is why it's called <em>volatile</em> storage.</p>
+
+<p>The <strong>Processor</strong> is where all of the processing happens. Simply speaking, the processor takes information from memory and manipulates it. It might add two values, compare them, or perform any number of other operations. </p>
+
+<p>The <strong>Storage</strong> is meant for keeping information that must remain even after the system is powered off and on again. It is where any files you save go. It's much slower than memory and it is generally not of too much concern to us when we're writing simple programs. </p>
+
+<p>A crucial thing to understand is that when we write code in Python (or any other programming language), the processor is what executes that code. Even though the processor runs our Python code when we tell it to, it doesn't actually understand Python. </p>
+
+<p>The processor actually only understands <strong>machine langauge</strong> or <strong>machine code</strong>. Each different brand and model of processor has its own machine language, and they are all expressed in literal 1's and 0's. The intricacies of how this works are irrelevent, but we need to understand the difference between writing machine language and writing something like Python. </p>
+
+<h3 id="whatisaprogramminglanguage">What is a Programming Language?</h3>
+
+<p>A programming language is a way of instructing a computer to perform specific operations and tasks.</p>
+
+<p>The first programming languages were machine languages. Programmers literally sat around typing ones and zeros until their program was complete. This was very tedious, however, and was quickly replaced with something called assembler. Assembler was just like machine language, except that it was written in human-readable text. Assemblers are still used today. </p>
+
+<p>But when we think of modern programming languages, we don't consider having to work with machine language or assembler. We use languages more like C or Python.</p>
+
+<p>In Python, to add two numbers a and b, we would write:</p>
+
+<pre><code>a = 83
+b = -2
+c = a + b
+</code></pre>
+
+<p>In a particular version of machine language, we might use:</p>
+
+<pre><code>0010 0001 0000 0100
+0001 0001 0000 0101
+0011 0001 0000 0110
+0111 0000 0000 0001
+0000 0000 0101 0011
+1111 1111 1111 1110
+0000 0000 0000 0000
+</code></pre>
+
+<p>This is obviously much more difficult than the Python version. </p>
+
+<p>This example is a great way to understand why we have so many different programming languages. We can imagine that some of these languages are closer to <code>a + b</code> and others are closer to machine language. </p>
+
+<p>Languages that are closer to machine language are <strong>less abstract</strong> and those closer to Python are <strong>more abstract</strong>. We describe this abstraction as <strong>low-level</strong> to <strong>high-level</strong>. Lower-level languages are closer to machine code and higher-level lagnuages are more like Python.</p>
+
+<p>You may be thinking, "If there are high-level languages that are so easy to write in, why do we have low-level languages at all?" This is a very real question, and one that many people ask. There are many answers, but in general, lower-level languages perform the same tasks faster than higher-level languages. Additionally, in very-low-level languages, programmers can take advantage of the finer control of the hardware that low-level languages offer. </p>
+
+<p>For our purposes, high-level languages are plenty. Python is a higher-level language than C. We'll use Python for all sorts of things, but in general, "mission critical" applications should be written in languages like C as opposed to Python.</p>
+
+<p>So what is a programming language for our purposes? </p>
+
+<p>A programming language is a means of instructing a computer to perform specific operations and tasks, and is readable by both humans and computers.</p>
+
+<p>Python is among the highest-level languages around. In Python, you never need to interact directly with the hardware. This will make learning it much easier than something like C or an assembler. </p>
+
+<h3 id="whyshouldilearntocodeinpython">Why should I learn to code (in Python)?</h3>
+
+<p>Besides simply the joy of learning something new, programming can be valuable to everyone, even musicians and producers. For one thing, many positions at music tech companies use Python, either as a means of analyzing data, automating tasks such as advertisement campaigns, and testing music software. Python is even increasingly becoming popular in the web development world. </p>
+
+<p>Sometimes, you might have an idea for a sound that you want to make, but can't figure out how to using plugins or Max. You might be able to build this sort of program in Python to process audio offline. </p>
+
+<p>Python is also a great starter language to get into languages like Java and C++, which are commonly used in audio software. </p>
+
+<p>Python is among the leading languages of the Machine Learning world, which opens all sorts of opportunities for musicians and engineers. </p>
+
+<p>Even if you aren't interested in working for tech companies, learning Python can be very valuable to all sorts of employers, from advertising companies that need to analyze datasets of advertisement interactions to stores that need to keep track of their inventories.</p>
+
+<h3 id="howtousetheterminal">How to use the Terminal</h3>
+
+<p>First, let’s get familiar with the terminal. The terminal is a way for you to interact with your computer with very simple instructions.</p>
+
+<p>We can do so many things with the terminal that we won’t get into today, but let’s figure out a few very basics.</p>
+
+<p>One of the most simple features of the terminal is the ability to move around the filesystem and its folders. Let’s open up a terminal and figure this out.</p>
+
+<p>Once your terminal is open, type </p>
+
+<p><code>cd ~/Desktop</code></p>
+
+<p>And then </p>
+
+<p><code>ls</code></p>
+
+<p>You should see a list of the files and folders on your desktop. 
+Next, type</p>
+
+<p><code>mkdir python</code></p>
+
+<p>And then again type</p>
+
+<p><code>ls</code></p>
+
+<p>You’ll see a new addition to the list of items on your desktop, a folder called “python”. We just made a new folder from the command line. “mkdir” stands for “make directory”, and “directory” is just another name for “folder”.</p>
+
+<p>We can go in finder to our desktop and confirm that there’s an empty folder there called python. </p>
+
+<p>Now, let’s try something else. Type:</p>
+
+<p><code>pwd</code></p>
+
+<p>This will give us something like Users/<username>/Desktop. 
+This just tells us that we’re on the desktop. “pwd” stands for “Print Working Directory”. It tells us where we are. Let’s go to the folder we just made using a new command “cd”. “cd” stands for “Change Directory”. This will let us move from one folder to another. We want to change to our new “python” directory. We do this with</p>
+
+<p><code>cd python</code></p>
+
+<p>Now if we type</p>
+
+<p><code>pwd</code></p>
+
+<p>We’ll see Users/<username>/Desktop/python. This means we’ve moved to our new python directory.
+If you want to move backwards, you can use:</p>
+
+<p><code>cd ../</code></p>
+
+<p>Which will bring us to Users/<username>/Desktop, and we can string “../” together repeatedly to move back multiple directories:</p>
+
+<p><code>cd ../../</code></p>
+
+<p>Which would bring us to Users.</p>
+
+<p>This is just a very basic introduction, but the Terminal is great, and can be used to replace Finder. We will use it to run Python files and read what we print from Python.</p>
+
+<h3 id="appendixa15minuteprogrammingbasicsforfuturereference">Appendix A: 15-minute Programming Basics - For Future Reference.</h3>
+
+<p>Here are a few very quick concepts that will be part of almost any programming language you learn. We'll learn them in Python soon. This should be used as a reference and not thought of as an introduction to these concepts. </p>
+
+<h4 id="variables">Variables</h4>
+
+<p>A <strong>variable</strong> is a place where we store a piece of information. For instance, if we're making a clock, we'd have to store the time in hours, minutes, and seconds: <code>time_hours = 12</code> <code>time_minutes = 23</code> <code>time_seconds = 41</code> would represent the time 12:23:41.</p>
+
+<p>All variables have a <strong>type</strong>, which tells the computer how the variable should be represented. For instance, most languages have an <code>int</code> type, which covers whole numbers, and a <code>float</code> type, which covers numbers with decimals. </p>
+
+<p>Some languages like C require that you tell it what type you're using in advance, while Python tries to figure it out without your input.</p>
+
+<h4 id="operators">Operators</h4>
+
+<p><strong>Operators</strong> are symbols that represent actions or processes. We know a bunch of operators because they're very intuitive: <code>1 + 2</code> uses the <code>+</code> operator, which represents the process of addition. In english, we could say "the <code>+</code> operator should give me the sum of the number before it and the number after it". The same goes for <code>-</code> for subtraction, <code>*</code> for multiplication, and <code>/</code> for division. Commonly, <code>**</code> is used for exponents, so that <code>4**2</code> is "four squared" or <code>16</code>.</p>
+
+<p>Most languages have <code>%</code> which is called "modulo" or "mod". If you've never heard of it, <code>a % b</code> returns <em>the remainder</em> after dividing a by b. For instance, <code>12 % 4</code> is <code>0</code> because twelve divided by four is three, and three times four is twelve. <code>12 % 5</code> takes the remainder of <code>12 / 5</code>, which is <code>2</code>. </p>
+
+<p>The operators we've discussed so far are <strong>arithmetic operators</strong>. They are so called because they perform arithmetic operations. There are other operators in every language though. </p>
+
+<p><strong>Boolean logic</strong> is a fancy name for logic performed on the values <code>True</code> and <code>False</code>. Boolean logical operators often include <code>and</code>, and <code>or</code>. These work like this: <code>a and b</code> is <code>True</code> if and only if <em>both</em> <code>a</code> and <code>b</code> are     <code>True</code>, and is <code>False</code> otherwise. <code>a or b</code> is True if and only if <em>either</em> <code>a</code> and <code>b</code> are <code>True</code>, and is <code>False</code> only if <code>a</code> and <code>b</code> are both <code>False</code>.</p>
+
+<p>There is also <code>not</code>, which only operates on one input, and works like this: <code>not a</code> is <code>False</code> if <code>a</code> is <code>True</code> and is <code>True</code> if <code>a</code> is <code>False</code>. In short, it returns the opposite of the input. </p>
+
+<p>Note: <code>and</code> is often replaced by the symbol <code>&amp;&amp;</code>, <code>or</code> by <code>||</code>, and <code>not</code> by <code>!</code>.</p>
+
+<p>Other common boolean operators are <code>xor</code>, and <code>nand</code>, which are both built on the above three.</p>
+
+<p><strong>Definition operators</strong> are used to define the value of variables. This might seem obvious, but the operator <code>=</code> represents an action, specifically the action of setting a variable to a value. In english, this might be described as "set the value of the variable to the left of <code>=</code> to the value to the right of <code>=</code>. Note: most languages have shorthand operators that look like this: <code>+=</code>, <code>-=</code>, <code>*=</code>, and <code>/=</code>. <code>a += b</code> is just shorthand for <code>a = a + b</code>. This is very useful.</p>
+
+<p><strong>Comparators</strong> are a type of operator that compares two or more values. For instance, <code>a == b</code> checks whether <code>a</code> is equal to <code>b</code>, returning <code>True</code> if they are equivalent, and <code>False</code> if they are not. Other comparators are: <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>, and <code>!=</code>. The first four should be relatively evident, and <code>a != b</code> is equivalent to <code>not (a == b)</code>, returning <code>True</code> if <code>a</code> is not equal to <code>b</code> and <code>False</code> otherwise.</p>
+
+<h4 id="controlflow">Control Flow</h4>
+
+<p><strong>Control flow</strong> is the order in which statements are processed. This order can normally be manipulated with <code>if</code> statements, <code>if...else</code> statements, and <code>if...elif...else</code> statements. During the program's execution, when an <code>if</code> statement comes up, the following block of code will be executed only if whatever follows the <code>if</code> statement is <code>True</code>. For instance, </p>
+
+<pre><code>a = 1
+if a == 1:
+    print "hello!"
+</code></pre>
+
+<p>This program would print <code>hello!</code> because <code>1</code> is equal to <code>1</code>. </p>
+
+<pre><code>a = 2
+if a == 1:
+    print "hello!"
+</code></pre>
+
+<p>This program would not print <code>hello!</code> because <code>2</code> is not equal to <code>1</code>.</p>
+
+<pre><code>a = 2
+if a == 1:
+    print "hello!"
+
+else:
+    print "goodbye."
+</code></pre>
+
+<p>This program would print <code>goodbye.</code> because <code>2</code> is not equal to <code>1</code>.</p>
+
+<pre><code>a = 2
+if a == 1:
+    print "hello!"
+elif a == 2:
+    print "hey!"
+else:
+    print "goodbye."
+</code></pre>
+
+<p>This program would print <code>hey!</code> because <code>2</code> is not equal to <code>1</code> and because <code>2</code> is equal to <code>2</code>.</p>
+
+<pre><code>a = 3
+if a == 1:
+    print "hello!"
+elif a == 2:
+    print "hey!"
+else:
+    print "goodbye."
+</code></pre>
+
+<p>This program would print <code>goodbye.</code> because <code>3</code> is not equal to <code>1</code> or <code>2</code>. </p>
+
+<h4 id="functions">Functions</h4>
+
+<p><strong>Functions</strong> are blocks of code that you plan to use later. They can have <strong>arguments</strong>, or variables that they depend on, and they can have <strong>results</strong> which can be passed on.</p>
+
+<p>Functions are not run unless they are called. You can have a huge function at the top of your file but if you never tell it to run (call, or invoke it) it will lay dormant. Functions are normally called like this: if you have a function <code>f(a)</code> with one argument <code>a</code>, you would run it with <code>f(1)</code> or <code>f(10124012)</code>. The point is you can change the argument and it will change the behavior of the function. We'll discuss functions at length while introducing Python.</p>
+
+<h3 id="appendixbdigitalaudioreview">Appendix B: Digital Audio Review</h3>
+
+<p>Many of you probably already understand this, but I'll review the basics of Digital Audio for those who are new to the idea. </p>
+
+<p><em>Digital audio is a representation of sound, which is a representation of pressure</em>. Pressure waves in the air create the sound that we hear. Specifically, we can hear sounds that are between 20Hz and 20,000Hz. We can record this sound using a microphone, which measures the displacement of this pressure wave. Analog audio is simply the electrical signal that represents where the microphone's capsule was at any given point in time. </p>
+
+<p>Digital Sampling Theory is the study of how we can take this analog signal and store it digitally. Essentially, many thousands of times a second, the computer asks the microphone (or other analog audio signal) for the location of the pressure wave. This is then converted into a digital value by the <strong>Analog-Digital Converter (ADC)</strong>. The rate at which the ADC checks the microphone is called the sampling rate. </p>
+
+<p>Because of Nyquist's theorum, which we won't get into now, this rate must be at least two times the highest frequency that we need to reproduce. For instance, at a sampling rate of 16,000Hz, a converter could reproduce sounds up to 8000Hz. To cover the audio range of 20Hz to 20kHz, we must sample at least 40,000 times per second. Common sampling rates are 44,100Hz, 48000Hz, and their integer multiples. </p>
+
+<p>The ADC is limited by both the sampling rate and the <strong>bit depth</strong>. Bit depth is the amount of data that is stored in each sample. A 16-bit audio file (CD quality) uses 131072 possible values (from -65,536 to 65,536; derived by 2^16) and a 24-bit audio file uses 33,554,432 possible values (from -16,777,216 to 16,777,216; derived by 2^24). Most of the time, we'll see audio represented as <strong>floating point</strong> values, scaled between -1.0 and 1.0. This makes processing much easier, and loses no precision (floats are normally 32-bit).</p>
+
+<p>This means that an audio file is just a long stream of numbers between -1.0 and 1.0. Its length is the length of the audio in seconds times the sampling rate. When we process audio files, we normally loop through every single value of this list and then do something to them. </p>
+
+<p>Upon playback, the digital signal is converted back into an analog signal in the <strong>Digital-Analog Converter (DAC)</strong>, which takes our digital file and recreates an analog equivalent. </p>
+
+<h3 id="appendixcprocessersreview">Appendix C: Processers Review</h3>
+
+<p>While most of you have used these tools, it's worth rehashing. </p>
+
+<h4 id="equalizer">Equalizer</h4>
+
+<h4 id="compressor">Compressor</h4>
+
+<h4 id="limiter">Limiter</h4>
+
+<h4 id="reverb">Reverb</h4>
+
+<h4 id="delay">Delay</h4>
+
+<h4 id="pitchshift">Pitch Shift</h4>
+
+<h3 id="appendixdwordstoknow">Appendix D: Words to Know</h3>
+
+<ul>
+<li>Instance. An instance is one particular occurrence of a program or a function. </li>
+
+<li>RAM. Random-Access Memory, the type of memory we have in our computers. </li>
+
+<li>Boolean Logic. A type of logic that uses only values True or False (or 0 and 1).</li>
+
+<li>Operator. A symbol that represents an action or process.</li>
+* 
+</ul>
