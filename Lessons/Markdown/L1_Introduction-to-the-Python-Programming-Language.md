@@ -574,7 +574,7 @@ the loop would count to 10 and then end.
 
 Okay, so now that we're through with the nuts and bolts, we can get to the good stuff: functions and classes. 
 
-Functions are simply pieces of code that are meant to be reused. Instead of writing in every line of code to make a filter, for instance, you can simply write a function:
+Functions are simply pieces of code that are meant to be reused. Instead of repeating each line of code to make a filter, for instance, you can simply write a function:
 
 <pre>
 def filter_audio(audio_to_filter, cutoff_frequency, slope):
