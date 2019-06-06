@@ -3,6 +3,34 @@
 
 <br/>
 
+### Contents
+
+1. [Goals](#Goals)
+2. [Installing Python](#Install)
+2. [Installing VSCode](#Code)
+3. [Programming in Python](#Programming)
+	* [The Python Langauge](#Lang)
+	* [How to Run Python Code](#Run)
+		* [Running a .py File](#py)
+		* [Interactive Mode](#inter)
+	* [Types](#Types)
+		* [Numerical Types](#num)
+		* [Strings](#strs)
+		* [Booleans](#bools)
+		* [Lists](#lists)
+		* [Dictionaries](#dicts)
+		* [More about Strings](#morestrs)
+	* [Operators](#Operators)
+		* [Arithmetic Operators](#arithmetic)
+		* [Definition Operators](#definition)
+		* [in and not in](#in)
+	* [Comparators](#Comparators)
+	* [If, Elif, and Else](#If)
+	* [Loops](#Loops)
+	* [Functions](#Functions)
+	* [Review](#Review)
+
+<a name="Goals"> </a>
 ### Goals  
  
 By the end of this lesson, you’ll be able to:
@@ -19,6 +47,8 @@ We’ll use Python 3 and our mac terminal to run python. This requires a tiny bi
 
 <br/>
 
+
+<a name="Install"></a>
 ### Installing Python
 
 First, we’ll run these lines:
@@ -39,6 +69,7 @@ Python 3 is now installed on your machine! Finally, let’s install one more thi
 
 <br/>
 
+<a name="Code"></a>
 ### Installing VSCode
 VSCode is a text editor designed for working with code. It’s released by microsoft but it works on mac, windows, and linux. 
 You should be able to download and install it easily at this link:
@@ -47,8 +78,9 @@ You should be able to download and install it easily at this link:
 
 <br/>
 
-
-## Programming in Python  
+<a name="Programming"></a>
+## Programming in Python 
+<a name="Lang"></a> 
 ### The Python Language 
 
 Python is a programming language that is very **high-level**. Compared to some languages such as assemblers, and even other languages such as C and C++, Python is simple to read and write. This ease of use is at the expense of certain control over what you're writing. This makes it very effective for a few certain tasks 
@@ -60,17 +92,19 @@ Python is a programming language that is very **high-level**. Compared to some l
 
 The first thing to know is that to print a variable or a statement to the terminal, you can use the `print` command like this: `print('hello world!')`. In this case, it takes the string `'hello world!'` and prints it out to the terminal. The output of lesson0_0.py would be `hello world!`.
 
+<a name="Run"></a>
 ### How to Run Python Code
 
 Some languages like C and C++ are **compiled**. This means that to execute the code you must tell the computer to turn the program into machine code. Python is not like this -- it is **interpreted**. 
 
 There are two basic ways to run Python: In a .py file and in "interactive mode". Let's try both.
 
+<a name="py"></a>
 #### Running a .py File
 
 Using the Terminal, go to the directory `PythonCurriculum/PythonFiles/`. Open `L1-0.py` in a text editor. You'll see that it has one line, which we've discussed above: `print('hello world!')`. Now, in the terminal, type `python3 L1-0.py`. You'll see `hello world!` on the terminal. 
 
-
+<a name="inter"></a>
 #### Using Interactive Mode
 
 Now, in a new terminal tab or window, type `python3`. You should see `>>>` before your cursor instead of `$`. Next, type `print('hello world!')`. You'll see another line pop up with `hello world!`, just like when you ran the file. To exit the interpreter and return to the Bash shell (i.e. terminal), type `exit()` or type control + d.
@@ -81,14 +115,21 @@ As you may have surmised, these two methods do the same thing, but one is typed 
 
 <br/>
 
-
+<a name="Types"></a>
 ### Types  
+
+* [Numerical Types](#num)
+* [Strings](#strs)
+* [Booleans](#bools)
+* [Lists](#lists)
+* [Dictionaries](#dicts)
+* [More about Strings](#morestrs)
 
 If you're writing a program, you'll need to store data at some point. Maybe you're trying to process audio and you want to store your audio signal, or maybe you're trying to plan your schedule and you'd like to store information about what time a class takes place. You'll store these pieces of information in variables. For instance, if you're trying to add two numbers, you'd have to store a few things in different places. We'll see this below.
 
 Unlike many languages, Python doesn't require that you declare a variable's type; it figures out the type using context and syntax. If you're already familiar with types like int, float, string, Bool, and list, you can skim through this section. 
 
-
+<a name="num"></a>
 #### Numerical types  
 
 ##### Integers
@@ -132,8 +173,8 @@ Similarlty, we can use decimal points using **floating point** numbers, or float
 this would output `-1.0` to the command line.
 
 
-
-##### Strings  
+<a name="strs"></a>
+#### Strings  
 
 A string is a series of characters. For instance, "hello world" is a string. In python, Strings can be designated with either '' or "" symbols. They can express any set of symbols, but in some cases these symbol sets are just letters, characters, and numbers, while in others they can include things like emoji. Let's declare a string:
 
@@ -163,7 +204,8 @@ The above code would output `hello world`. This can be very helpful.
 
 There are some other fun things we can do wtih strings but we'll save them for later.
 
-##### Boolean  
+<a name="bools"></a>
+#### Boolean  
 
 Boolean might sound like a complicated word, but it's just another name for **true or false**. Boolean variables are either `True` or `False`. For instance, if you were making a video game and you wanted to know whether it was night or day in your virual world, you might say:
 
@@ -207,8 +249,8 @@ As you may have guessed, not simply switches the variable from `True` to `False`
 
 Booleans are sometimes used as types of variables, such as in the `is_daytime = False` example, but more often they are used when comparing two things. We'll talk about that in the **comparators** section below.
 
-
-##### Lists  
+<a name="lists"></a>
+#### Lists  
 
 Lists are just what they sound like. They are a series of other types. that can be used to store sequential information. They are **ordered** in that they cannot change order without you telling them to. They are not to be confused with arrays from some other programming languages like C though, for several reasons, most importantly that Python lists can change size after being created. 
 
@@ -289,8 +331,8 @@ now `b` is equal to `'h'`.
 
 
 
-
-##### Dictionaries  
+<a name="dicts"></a>
+#### Dictionaries  
 
 Often times, we need to use python to relate one value to another. For instance, if we had a list of cars and the year they were made, we could store that data in a dictionary:
 
@@ -308,8 +350,8 @@ We won't be using dictionaries today, but if you want to learn more, see any of 
 
 <br/>
 
-
-##### More about strings 
+<a name="morestrs"></a>
+#### More about strings 
 
 Strings in python are great. They allow us to do all sorts of things very easily using these extended functionalities:
 
@@ -329,10 +371,16 @@ Similarly,
 
 now `c` is `'hello hello world'`. The `*` operator just repeats a string.
 
+<a name="Operators"></a>
 ### Operators  
+
+* [Arithmetic Operators](#arithmetic)
+* [Definition Operators](#definition)
+* [in and not in](#in)
 
 Operators in python consist of: `+`, `-`, `*`, `/`, `**`, `//`, `%`, `=`, `+=`, `-=`, `*=`, `/=`, `//=`, `%=`, `**=`, `in`, `not in`. There are a few more that are useful in some cases, but we'll stick with these for now. 
 
+<a name="arithmetic"></a>
 #### Arithmetic Operators  
 
 Python's arithmetic operators are `+`, `-`, `*`, `/`, `**`, `//`, `%`. The first four work just as you'd expect -- add, subtract, multiply, and divide. 
@@ -375,6 +423,7 @@ now `b` is equal to `1815`.
 
 <br/>
 
+<a name="definition"></a>
 #### Definition Operators 
 
 We've already been using one definition operator all the time. `=` is the most self-explanitory definition operator. it simply sets the value of a variable equal to whatever is after it. The other definition operators are `+=`, `-=`, `*=`, `/=`, `//=`, `%=`, `**=`. These are quite simply shortcuts for changing a value in terms of itself. Let's look:
@@ -395,6 +444,7 @@ a += b
 
 This does the exact same thing. The other operators just do their respective operations and work the exact same way otherwise. 
 
+<a name="in"></a>
 #### in and not in 
 
 These are also very intuitive. If you have a list:
@@ -421,6 +471,7 @@ is True,
 
 is False.
 
+<a name="Comparators"></a>
 ### Comparators  
 
 Comparators are technically operators but they are used differently. Comparators, as it might seem, compare things. The comparators of Python are `==`, `!=`, `<=`, `<`, `>=`, and `>`. They make good sense. If `a = 20` and `b = 10`:
@@ -460,6 +511,7 @@ NOTE: using `==` or `!=` on floats is generally a bad idea. Even if it seems to 
 <br/>
 <br/>
 
+<a name="If"></a>
 ### if, elif, else  
 
 Often times during programming, we must change do certain operations based on certain conditions. For instance, in the example of a video game where it could be daytime or nighttime, we had this:
@@ -495,8 +547,10 @@ The `if` and `elif` statements should be followed by a statement whose result is
 (An exception to this case is that `while` loops which are supposed to act like `while True:` are often written as `while 1:`, inherited from the C language, which doesn't have boolean types and instead uses integers either 1 or 0 for True and False respectively.)
 
 
-<br/>
+Note: In Python, unlike other languages, the inside of a control flow statement is denoted by whitespace -- a tab or four spaces -- rather than by a bracket. 
 
+<br/>
+<a name="Loops"></a>
 ### For and While  
 
 Python offers two types of loops: for `loops` and `while` loops. For loops are formatted like this:
@@ -570,6 +624,7 @@ the loop would count to 10 and then end.
 <br/>
 <br/>
 
+<a name="Functions"></a>
 ### Functions
 
 Okay, so now that we're through with the nuts and bolts, we can get to the good stuff: functions and classes. 
@@ -722,7 +777,7 @@ Functions are the bread and butter of modern computing. Almost everything is don
 
 
 
-
+<a name="Review"></a>
 ### Review
 
 At this point, we'll stop learning about Python basic concepts and begin talking about how we can use them. Let's look at a few problems: 

@@ -1,10 +1,49 @@
-<h1 id="introductiontothepythonprogramminglanguage">Introduction to the Python Programming Language</h1>
+<h1>Introduction to the Python Programming Language</h1>
 
-<h4 id="zacharylewistowbesberkleemakesapril2019">Zachary Lewis-Towbes; BerkleeMakes; April 2019</h4>
+<h4>Zachary Lewis-Towbes; BerkleeMakes; April 2019</h4>
 
 <p><br/></p>
 
-<h3 id="goals">Goals</h3>
+<h3>Contents</h3>
+
+<ol>
+<li><a href="#Goals">Goals</a></li>
+<li><a href="#Install">Installing Python</a></li>
+<li><a href="#Code">Installing VSCode</a></li>
+<li><a href="#Programming">Programming in Python</a>
+<ul>
+<li><a href="#Lang">The Python Langauge</a></li>
+<li><a href="#Run">How to Run Python Code</a>
+<ul>
+<li><a href="#py">Running a .py File</a></li>
+<li><a href="#inter">Interactive Mode</a></li>
+</ul></li>
+<li><a href="#Types">Types</a>
+<ul>
+<li><a href="#num">Numerical Types</a></li>
+<li><a href="#strs">Strings</a></li>
+<li><a href="#bools">Booleans</a></li>
+<li><a href="#lists">Lists</a></li>
+<li><a href="#dicts">Dictionaries</a></li>
+<li><a href="#morestrs">More about Strings</a></li>
+</ul></li>
+<li><a href="#Operators">Operators</a>
+<ul>
+<li><a href="#arithmetic">Arithmetic Operators</a></li>
+<li><a href="#definition">Definition Operators</a></li>
+<li><a href="#in">in and not in</a></li>
+</ul></li>
+<li><a href="#Comparators">Comparators</a></li>
+<li><a href="#If">If, Elif, and Else</a></li>
+<li><a href="#Loops">Loops</a></li>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Review">Review</a></li>
+</ul></li>
+</ol>
+
+<p><a name="Goals"> </a></p>
+
+<h3>Goals</h3>
 
 <p>By the end of this lesson, you’ll be able to:</p>
 
@@ -19,7 +58,9 @@ Read logical operators in Python.
 
 <p><br/></p>
 
-<h3 id="installingpython">Installing Python</h3>
+<p><a name="Install"></a></p>
+
+<h3>Installing Python</h3>
 
 <p>First, we’ll run these lines:</p>
 
@@ -39,7 +80,9 @@ Read logical operators in Python.
 
 <p><br/></p>
 
-<h3 id="installingvscode">Installing VSCode</h3>
+<p><a name="Code"></a></p>
+
+<h3>Installing VSCode</h3>
 
 <p>VSCode is a text editor designed for working with code. It’s released by microsoft but it works on mac, windows, and linux. 
 You should be able to download and install it easily at this link:
@@ -47,33 +90,41 @@ You should be able to download and install it easily at this link:
 
 <p><br/></p>
 
-<h2 id="programminginpython">Programming in Python</h2>
+<p><a name="Programming"></a></p>
 
-<h3 id="thepythonlanguage">The Python Language</h3>
+<h2>Programming in Python</h2>
+
+<p><a name="Lang"></a> </p>
+
+<h3>The Python Language</h3>
 
 <p>Python is a programming language that is very <strong>high-level</strong>. Compared to some languages such as assemblers, and even other languages such as C and C++, Python is simple to read and write. This ease of use is at the expense of certain control over what you're writing. This makes it very effective for a few certain tasks </p>
 
 <ol>
 <li>Rapid development. Python makes it easy to make relatively complicated things quickly.</li>
-
 <li>Scripting. Python makes it easy to write simple operations that can make your life easier.</li>
-
 <li>Creativity. It doesn't take long to make an audio processor in Python. If you can think up a signal processing method that you can't implement in Max or your DAW, you can probably write it in Python in only a few minutes.</li>
 </ol>
 
 <p>The first thing to know is that to print a variable or a statement to the terminal, you can use the <code>print</code> command like this: <code>print('hello world!')</code>. In this case, it takes the string <code>'hello world!'</code> and prints it out to the terminal. The output of lesson0_0.py would be <code>hello world!</code>.</p>
 
-<h3 id="howtorunpythoncode">How to Run Python Code</h3>
+<p><a name="Run"></a></p>
+
+<h3>How to Run Python Code</h3>
 
 <p>Some languages like C and C++ are <strong>compiled</strong>. This means that to execute the code you must tell the computer to turn the program into machine code. Python is not like this -- it is <strong>interpreted</strong>. </p>
 
 <p>There are two basic ways to run Python: In a .py file and in "interactive mode". Let's try both.</p>
 
-<h4 id="runningapyfile">Running a .py File</h4>
+<p><a name="py"></a></p>
+
+<h4>Running a .py File</h4>
 
 <p>Using the Terminal, go to the directory <code>PythonCurriculum/PythonFiles/</code>. Open <code>L1-0.py</code> in a text editor. You'll see that it has one line, which we've discussed above: <code>print('hello world!')</code>. Now, in the terminal, type <code>python3 L1-0.py</code>. You'll see <code>hello world!</code> on the terminal. </p>
 
-<h4 id="usinginteractivemode">Using Interactive Mode</h4>
+<p><a name="inter"></a></p>
+
+<h4>Using Interactive Mode</h4>
 
 <p>Now, in a new terminal tab or window, type <code>python3</code>. You should see <code>&gt;&gt;&gt;</code> before your cursor instead of <code>$</code>. Next, type <code>print('hello world!')</code>. You'll see another line pop up with <code>hello world!</code>, just like when you ran the file. To exit the interpreter and return to the Bash shell (i.e. terminal), type <code>exit()</code> or type control + d.</p>
 
@@ -83,15 +134,28 @@ You should be able to download and install it easily at this link:
 
 <p><br/></p>
 
-<h3 id="types">Types</h3>
+<p><a name="Types"></a></p>
+
+<h3>Types</h3>
+
+<ul>
+<li><a href="#num">Numerical Types</a></li>
+<li><a href="#strs">Strings</a></li>
+<li><a href="#bools">Booleans</a></li>
+<li><a href="#lists">Lists</a></li>
+<li><a href="#dicts">Dictionaries</a></li>
+<li><a href="#morestrs">More about Strings</a></li>
+</ul>
 
 <p>If you're writing a program, you'll need to store data at some point. Maybe you're trying to process audio and you want to store your audio signal, or maybe you're trying to plan your schedule and you'd like to store information about what time a class takes place. You'll store these pieces of information in variables. For instance, if you're trying to add two numbers, you'd have to store a few things in different places. We'll see this below.</p>
 
 <p>Unlike many languages, Python doesn't require that you declare a variable's type; it figures out the type using context and syntax. If you're already familiar with types like int, float, string, Bool, and list, you can skim through this section. </p>
 
-<h4 id="numericaltypes">Numerical types</h4>
+<p><a name="num"></a></p>
 
-<h5 id="integers">Integers</h5>
+<h4>Numerical types</h4>
+
+<h5>Integers</h5>
 
 <p>Python gives us access to a few different types that are specifically meant to be used as numbers. Here's an example of using integers:</p>
 
@@ -117,7 +181,7 @@ You should be able to download and install it easily at this link:
 
 <p>In the current version of Python, there is no size limit for integers except the size of your avaliable memory (i.e. very, very large: if n is the amount of avaliable memory in gb, you could have an int up to <code>2**(n*(10**9))</code> -- too big to worry about.)</p>
 
-<h5 id="floats">Floats</h5>
+<h5>Floats</h5>
 
 <p>Similarlty, we can use decimal points using <strong>floating point</strong> numbers, or floats. In python, floats work almost exactly the same way as ints:</p>
 
@@ -131,7 +195,9 @@ You should be able to download and install it easily at this link:
 
 <p>this would output <code>-1.0</code> to the command line.</p>
 
-<h5 id="strings">Strings</h5>
+<p><a name="strs"></a></p>
+
+<h4>Strings</h4>
 
 <p>A string is a series of characters. For instance, "hello world" is a string. In python, Strings can be designated with either '' or "" symbols. They can express any set of symbols, but in some cases these symbol sets are just letters, characters, and numbers, while in others they can include things like emoji. Let's declare a string:</p>
 
@@ -161,7 +227,9 @@ You should be able to download and install it easily at this link:
 
 <p>There are some other fun things we can do wtih strings but we'll save them for later.</p>
 
-<h5 id="boolean">Boolean</h5>
+<p><a name="bools"></a></p>
+
+<h4>Boolean</h4>
 
 <p>Boolean might sound like a complicated word, but it's just another name for <strong>true or false</strong>. Boolean variables are either <code>True</code> or <code>False</code>. For instance, if you were making a video game and you wanted to know whether it was night or day in your virual world, you might say:</p>
 
@@ -204,7 +272,9 @@ You should be able to download and install it easily at this link:
 
 <p>Booleans are sometimes used as types of variables, such as in the <code>is_daytime = False</code> example, but more often they are used when comparing two things. We'll talk about that in the <strong>comparators</strong> section below.</p>
 
-<h5 id="lists">Lists</h5>
+<p><a name="lists"></a></p>
+
+<h4>Lists</h4>
 
 <p>Lists are just what they sound like. They are a series of other types. that can be used to store sequential information. They are <strong>ordered</strong> in that they cannot change order without you telling them to. They are not to be confused with arrays from some other programming languages like C though, for several reasons, most importantly that Python lists can change size after being created. </p>
 
@@ -282,7 +352,9 @@ You should be able to download and install it easily at this link:
 
 <p>now <code>b</code> is equal to <code>'h'</code>.</p>
 
-<h5 id="dictionaries">Dictionaries</h5>
+<p><a name="dicts"></a></p>
+
+<h4>Dictionaries</h4>
 
 <p>Often times, we need to use python to relate one value to another. For instance, if we had a list of cars and the year they were made, we could store that data in a dictionary:</p>
 
@@ -300,7 +372,9 @@ You should be able to download and install it easily at this link:
 
 <p><br/></p>
 
-<h5 id="moreaboutstrings">More about strings</h5>
+<p><a name="morestrs"></a></p>
+
+<h4>More about strings</h4>
 
 <p>Strings in python are great. They allow us to do all sorts of things very easily using these extended functionalities:</p>
 
@@ -322,11 +396,21 @@ c = (a * 2) + b
 
 <p>now <code>c</code> is <code>'hello hello world'</code>. The <code>*</code> operator just repeats a string.</p>
 
-<h3 id="operators">Operators</h3>
+<p><a name="Operators"></a></p>
+
+<h3>Operators</h3>
+
+<ul>
+<li><a href="#arithmetic">Arithmetic Operators</a></li>
+<li><a href="#definition">Definition Operators</a></li>
+<li><a href="#in">in and not in</a></li>
+</ul>
 
 <p>Operators in python consist of: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>**</code>, <code>//</code>, <code>%</code>, <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>//=</code>, <code>%=</code>, <code>**=</code>, <code>in</code>, <code>not in</code>. There are a few more that are useful in some cases, but we'll stick with these for now. </p>
 
-<h4 id="arithmeticoperators">Arithmetic Operators</h4>
+<p><a name="arithmetic"></a></p>
+
+<h4>Arithmetic Operators</h4>
 
 <p>Python's arithmetic operators are <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>**</code>, <code>//</code>, <code>%</code>. The first four work just as you'd expect -- add, subtract, multiply, and divide. </p>
 
@@ -367,7 +451,9 @@ and we want to see if it's divisible by 12000, we would run </p>
 
 <p><br/></p>
 
-<h4 id="definitionoperators">Definition Operators</h4>
+<p><a name="definition"></a></p>
+
+<h4>Definition Operators</h4>
 
 <p>We've already been using one definition operator all the time. <code>=</code> is the most self-explanitory definition operator. it simply sets the value of a variable equal to whatever is after it. The other definition operators are <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>//=</code>, <code>%=</code>, <code>**=</code>. These are quite simply shortcuts for changing a value in terms of itself. Let's look:</p>
 
@@ -387,7 +473,9 @@ a += b
 
 <p>This does the exact same thing. The other operators just do their respective operations and work the exact same way otherwise. </p>
 
-<h4 id="inandnotin">in and not in</h4>
+<p><a name="in"></a></p>
+
+<h4>in and not in</h4>
 
 <p>These are also very intuitive. If you have a list:</p>
 
@@ -413,7 +501,9 @@ a += b
 
 <p>is False.</p>
 
-<h3 id="comparators">Comparators</h3>
+<p><a name="Comparators"></a></p>
+
+<h3>Comparators</h3>
 
 <p>Comparators are technically operators but they are used differently. Comparators, as it might seem, compare things. The comparators of Python are <code>==</code>, <code>!=</code>, <code>&lt;=</code>, <code>&lt;</code>, <code>&gt;=</code>, and <code>&gt;</code>. They make good sense. If <code>a = 20</code> and <code>b = 10</code>:</p>
 
@@ -452,7 +542,9 @@ a += b
 <p><br/>
 <br/></p>
 
-<h3 id="ifelifelse">if, elif, else</h3>
+<p><a name="If"></a></p>
+
+<h3>if, elif, else</h3>
 
 <p>Often times during programming, we must change do certain operations based on certain conditions. For instance, in the example of a video game where it could be daytime or nighttime, we had this:</p>
 
@@ -485,9 +577,10 @@ else:
 
 <p>(An exception to this case is that <code>while</code> loops which are supposed to act like <code>while True:</code> are often written as <code>while 1:</code>, inherited from the C language, which doesn't have boolean types and instead uses integers either 1 or 0 for True and False respectively.)</p>
 
-<p><br/></p>
+<p><br/>
+<a name="Loops"></a></p>
 
-<h3 id="forandwhile">For and While</h3>
+<h3>For and While</h3>
 
 <p>Python offers two types of loops: for <code>loops</code> and <code>while</code> loops. For loops are formatted like this:</p>
 
@@ -557,7 +650,9 @@ while True:
 <p><br/>
 <br/></p>
 
-<h3 id="functions">Functions</h3>
+<p><a name="Functions"></a></p>
+
+<h3>Functions</h3>
 
 <p>Okay, so now that we're through with the nuts and bolts, we can get to the good stuff: functions and classes. </p>
 
@@ -619,9 +714,7 @@ def divisibleByThree(number):
 
 <ol>
 <li>The new class cannot <em>start</em> during an existing class</li>
-
 <li>The new class cannot <em>end</em> during an existing class</li>
-
 <li>The new class is a valid number of hours (i.e. non-negative, not exceeding 24, etc)</li>
 </ol>
 
@@ -707,7 +800,9 @@ def divisibleByThree(number):
 <br/>
 <br/></p>
 
-<h3 id="review">Review</h3>
+<p><a name="Review"></a></p>
+
+<h3>Review</h3>
 
 <p>At this point, we'll stop learning about Python basic concepts and begin talking about how we can use them. Let's look at a few problems: </p>
 

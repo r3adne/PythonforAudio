@@ -1,0 +1,510 @@
+<h1>Python in Depth</h1>
+
+<h4>Zachary Lewis-Towbes; BerkleeMakes; June 2019</h4>
+
+<h3>Contents</h3>
+
+<ol>
+<li><a href="#ReviewingPython">Review existing Python concepts (Variables, Types, Functions)</a></li>
+<li><a href="#MoreAboutFunctions">More about functions</a> 
+<ul>
+<li><a href="#notReturning">Not Returning</a></li>
+<li><a href="#defaultArguments">Default Arguments</a></li>
+<li><a href="#keywordArguments">Keyword Arguments</a></li>
+<li><a href="#docstrings">Docstrings</a></li>
+</ul></li>
+<li><a href="#Builtins">Common built-in functions</a>
+<ul>
+<li><a href="#print">print()</a></li>
+<li><a href="#range">range()</a></li>
+<li><a href="#len">len()</a></li>
+<li><a href="#type">type()</a></li>
+<li><a href="#conversion">Type Conversion</a></li>
+<li><a href="#format">String.format()</a></li>
+<li><a href="#listMethods">List Methods</a></li>
+</ul></li>
+<li><a href="#Imports">Importing modules</a></li>
+<li><a href="#Modules">Built-in Modules</a>
+<ul>
+<li><a href="#os">os</a></li>
+<li><a href="#math">math</a></li>
+<li><a href="#stats">statistics</a></li>
+</ul></li>
+<li><a href="#Style">Style</a> </li>
+</ol>
+
+<p><a name="ReviewingPython"></a></p>
+
+<h3>Reviewing Python</h3>
+
+<p>In the last two lessons we learned about Variables and their Types; Arithmetic, Definition, and Identity operators; Comparators; Looping and if, elif, else; and Functions. If you have any questions about these, now is the time to ask.</p>
+
+<p><br/></p>
+
+<p><a name="MoreAboutFunctions"></a></p>
+
+<h3>More about Functions</h3>
+
+<p>We've already seen how functions can be used to manipulate and return data. We know how to pass arguments to functions and how to return data from the functions. Now let's look at some other ways we can make functions even more useful.</p>
+
+<ul>
+<li><a href="#notReturning">Not Returning</a></li>
+<li><a href="#defaultArguments">Default Arguments</a></li>
+<li><a href="#keywordArguments">Keyword Arguments</a></li>
+<li><a href="#docstrings">Docstrings</a></li>
+</ul>
+
+<p><a name="notReturning"></a></p>
+
+<h4>Not Returning</h4>
+
+<p>What happens if we don't return from a function? Intuitively, nothing happens, but in reality, it still returns <em>something</em>. This something is actually its own type: <code>None</code>.  In other words, if we make a function which doesn't return anything and then call it in a definition, what happens?</p>
+
+<pre><code>def printHelloWorld():
+    print('hello world')
+
+a = printHelloWorld()
+</code></pre>
+
+<p>First, in the function <code>printHelloWorld()</code>, python prints <code>hello world</code> to the command line. Then, it sets <code>a</code> to <code>None</code>. Any function that doesn't have a <code>return</code> function returns <code>None</code>. <code>None</code> is the lack of a type. </p>
+
+<p><a name="defaultArguments"></a></p>
+
+<h4>Default Arguments</h4>
+
+<p>Sometimes there are functions that we want to use for certain basic functionality, but we still want to allow more advanced control of their behavior. We can do them using default arguments. Default arguments are simply arguments whose values we provide when writing the function, but which we can override later. For instance, in our function that solved the problem given at the end of L1, we can make an argument default like this:</p>
+
+<pre><code>def pe1(a, b, number=1000):
+    sum = 0
+    for i in range(number):
+        if i % a == 0:
+            sum += i
+        elif i % b == 0:
+            sum += i 
+
+    return sum
+</code></pre>
+
+<p>This means that we can call the function using just:</p>
+
+<pre><code>pe1(a, b)
+</code></pre>
+
+<p>and it will default the value of <code>number</code> to <code>1000</code>. </p>
+
+<p>If we need to, though, we can call it as:</p>
+
+<pre><code>pe1(a, b, 100)
+</code></pre>
+
+<p>which will set the value of <code>number</code> to <code>100</code>. </p>
+
+<p><a name="keywordArguments"></a></p>
+
+<h4>Keyword Arguments</h4>
+
+<p>Similar to Default Arguments, Keyword Arguments are arguments that can be accessed by their keyword. Using the last function <code>pe1(a, b, number=1000)</code>, we can access number like this as well as the way we did above:</p>
+
+<pre><code>pe1(a, b, number=959).
+</code></pre>
+
+<p>This is quite useful when there are multiple keywords. If we modified <code>pe1</code>, we could do this:</p>
+
+<pre><code>def pe1(a=3, b=5, number=1000):
+    sum = 0
+    for i in range(number):
+        if i % a == 0:
+            sum += i
+        elif i % b == 0:
+            sum += i 
+
+    return sum
+</code></pre>
+
+<p>In this case, if we wanted to change only <code>number</code> and not <code>a</code> or <code>b</code>, we can do so:</p>
+
+<pre><code>pe1(number=10)
+</code></pre>
+
+<p>without calling <code>a</code> or <code>b</code>.</p>
+
+<p><a name="docstrings"></a></p>
+
+<h4>Docstrings</h4>
+
+<p>Documentation strings are simple ways of describing to future readers what a function does. While it doesn't do anything to the execution of the function, it assists people using your function. They look like this:</p>
+
+<pre><code>def pe1(a, b, number=1000):
+    """ 
+    finds the sum of numbers divisible by either a or b under 1000.
+    """
+    sum = 0
+    for i in range(number):
+        if i % a == 0:
+            sum += i
+        elif i % b == 0:
+            sum += i 
+
+    return sum
+</code></pre>
+
+<p>This is also how we can generally format multi-line comments in Python. if you have a long block of code you'd like to comment out, you may use """ """.</p>
+
+<p><br/></p>
+
+<p><a name="Builtins"></a></p>
+
+<h3>Common Built-in Functions and Methods</h3>
+
+<p>Here we'll cover many of the most common built-in functions. </p>
+
+<ul>
+<li><a href="#print">print()</a></li>
+<li><a href="#range">range()</a></li>
+<li><a href="#len">len()</a></li>
+<li><a href="#type">type()</a></li>
+<li><a href="#conversion">Type Conversion</a></li>
+<li><a href="#format">String.format()</a></li>
+<li><a href="#listMethods">List Methods</a></li>
+</ul>
+
+<p><a name="print"></a></p>
+
+<h4>print()</h4>
+
+<p>We already know how to use print(), but it's a built-in function so we'll mention it here.</p>
+
+<p><a name="range"></a></p>
+
+<h4>range()</h4>
+
+<p><code>range(n, m)</code> returns the integers from n to m, exclusive.</p>
+
+<p>The first argument is optional and defaults to 0:</p>
+
+<p><code>range(10)</code> is equivalent to <code>range(0, 10)</code></p>
+
+<p>range can also be used with a step amount: <code>range(start, stop, step=1)</code></p>
+
+<p>For instance, <code>list(range(0, 10, 2))</code> is <code>[0, 2, 4, 6, 8]</code>.</p>
+
+<p><code>range()</code> is most often used in for loops.</p>
+
+<p>Note: <code>range()</code> doesn't return a list. rather, to read it as a list we must call <code>list(range(n))</code>. That said, it is used in for loops in that it is interpreted as a sequence. </p>
+
+<p><a name="len"></a></p>
+
+<h4>len()</h4>
+
+<p>len() returns the length of a string, dict, or list. </p>
+
+<pre><code>len('hello world') # is 11
+len([1, 2, 3, 4]) # is 4
+</code></pre>
+
+<p><a name="type"></a></p>
+
+<h4>type()</h4>
+
+<p>The type() function checks the type of its first argument:</p>
+
+<pre><code>a = 1
+
+print(type(a))
+</code></pre>
+
+<p>this prints <code>&lt;class 'int'&gt;</code>, meaning that a is an integer. </p>
+
+<p><a name="conversion"></a></p>
+
+<h4>Type conversion</h4>
+
+<p>You may need to take input from a user as a string, for instance, which looks like this <code>"13.2"</code>. In order to use this data numerically, you'll need to convert it to a float. We can do this simply by calling <code>float("13.2")</code>. There are similar functions for each other type:</p>
+
+<pre><code>list('[1, 2, 3, 4]') # is [1, 2, 3, 4]
+list("Hello World") # is ['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd']
+int('139') # is 139
+str(139) # is '139'
+</code></pre>
+
+<p>This is quite useful especially when formatting strings manually. As we know, we can use the <code>+</code> to append one string to another. </p>
+
+<pre><code>nGiraffes = 12
+nPonies = 2
+name = 'Erin'
+
+print('We have ' + str(nGiraffes) + ' giraffes and ' + str(nPonies) + ' ponies, ' + name + '.')
+</code></pre>
+
+<p><a name="format"></a></p>
+
+<h4>String.format()</h4>
+
+<p>To do the same thing we just did above in a simpler way, we can use String.format().</p>
+
+<pre><code>nGiraffes = 12
+nPonies = 2
+name = 'Erin'
+
+print('We have {} giraffes and {} ponies, {}.'.format(nGiraffes, nPonies, name))
+</code></pre>
+
+<p>This will print: </p>
+
+<pre><code>We have 12 giraffes and 2 ponies, Erin.
+</code></pre>
+
+<p><a name="listMethods"></a></p>
+
+<h4>List Methods</h4>
+
+<p>Lists have many features that we won't get into for now, but the bulk of them are:</p>
+
+<pre><code>List.append()
+List.pop()
+List.count()
+List.remove()
+List.sort()
+min(list)
+max(list)
+</code></pre>
+
+<h5>List.append()</h5>
+
+<p><code>List.append()</code> adds a given item to the end of a list. </p>
+
+<pre><code>a = [1, 2, 3, 4]
+a.append(5)
+print(a)
+</code></pre>
+
+<p>prints <code>[1, 2, 3, 4, 5]</code>.</p>
+
+<h5>List.pop()</h5>
+
+<p><code>List.pop()</code> <em>removes and returns</em> the item at the given index. If no index is given, it will return the last item of the list.</p>
+
+<pre><code>a = [1, 2, 3, 4]
+print(a.pop(2))
+</code></pre>
+
+<p>prints <code>3</code>. Now a is <code>[1, 2, 4]</code>.</p>
+
+<pre><code>print(a.pop())
+</code></pre>
+
+<p>prints <code>4</code> because <code>a.pop()</code> defaults to remoivng the last item. </p>
+
+<h5>List.count()</h5>
+
+<p><code>List.count(i)</code> returns the number of times that i occurs in a list.</p>
+
+<pre><code>a = [1, 2, 3, 1, 1, 12, 109, 2, 1]
+print(a.count(1))
+</code></pre>
+
+<p>This prints <code>4</code> because there are 4 occurrences of the item 1 in the list a.</p>
+
+<h5>List.remove()</h5>
+
+<p><code>List.remove(a)</code> removes the first occurrence of a in the list.</p>
+
+<pre><code>a = [1, 2, 3, 1, 1, 12, 109, 2, 1] 
+a.remove(1)
+</code></pre>
+
+<p>now a is <code>[2, 3, 1, 1, 12, 109, 2, 1]</code></p>
+
+<pre><code>a.remove(1)
+</code></pre>
+
+<p>now a is <code>[2, 3, 1, 12, 109, 2, 1]</code></p>
+
+<pre><code>a.remove(1)
+</code></pre>
+
+<p>now a is <code>[2, 3, 12, 109, 2, 1]</code></p>
+
+<h5>List.sort()</h5>
+
+<p><code>List.sort()</code> simply sorts the list in ascending order. </p>
+
+<pre><code>a = [1, 2, 3, 1, 1, 12, 109, 2, 1] 
+a.sort()
+</code></pre>
+
+<p>now a is <code>[1, 1, 1, 1, 2, 2, 3, 12, 109]</code></p>
+
+<h5>max(a), min(a)</h5>
+
+<p>These simply return the highest and lowest values of a list:</p>
+
+<pre><code>a = [1, 2, 3, 1, 1, 12, 109, 2, 1]
+print(max(a))
+</code></pre>
+
+<p>prints <code>109</code>.</p>
+
+<pre><code>print(min(a))
+</code></pre>
+
+<p>prints <code>1</code>.</p>
+
+<p><br/></p>
+
+<p><a name="Imports"></a></p>
+
+<h3>Importing Modules</h3>
+
+<p>Python supports the use of third-party modules and code using the <code>import</code> keyword. At the top of a file, you can <code>import</code> a function from another python file. Let's say we have a file with our <code>divisibleByThree</code> function:</p>
+
+<pre><code># this file is called 'divisibility.py'
+
+def divisibleByThree(number):
+    sum = 0
+    for i in list(str(number)):
+        sum += int(i)
+
+    if len(str(sum)) &gt; 1:
+        if divisibleByThree(sum) == True:
+            return True
+    else:
+        if (sum == 9 or sum == 6 or sum == 3):
+            return True
+        else:
+            return False
+</code></pre>
+
+<p>Now, in the same folder, we can make another file:</p>
+
+<pre><code># this file is called 'L2-0.py'
+
+import divisibility
+
+print(divisibility.divisibleByThree(2145)
+print(divisibility.divisibleByThree(19)
+</code></pre>
+
+<p>This file will successfully use the function from the other file. The <code>.</code> tells us that <code>divisibleByThree</code> is a member of <code>divisibility</code>. We'll discuss membership in L3. </p>
+
+<p><br/></p>
+
+<p><a name="Modules"></a></p>
+
+<h3>Built-in modules</h3>
+
+<p>Python has a few modules that are installed with python. We'll go over the basic functionality of a few of them here.</p>
+
+<ul>
+<li><a href="#os">os</a></li>
+<li><a href="#math">math</a></li>
+<li><a href="#stats">statistics</a></li>
+</ul>
+
+<p><a name="os"></a></p>
+
+<h4>os</h4>
+
+<p>The <code>os</code> module gives us access to certain functionality that is built in to our operating system.</p>
+
+<h5>os.listdir()</h5>
+
+<p>Listdir simply lists the items in a directory. For instance, in our directory 'PythonforAudio', if we run </p>
+
+<pre><code>import os
+print(os.listdir())
+</code></pre>
+
+<p>we will see <code>['.DS_Store', 'README.md', '.gitignore', 'PythonFiles', 'Lessons', '.git']</code>.</p>
+
+<h5>os.system()</h5>
+
+<p>System executes any shell command (terminal command) within python. </p>
+
+<pre><code>print(os.system('ls'))
+</code></pre>
+
+<p>prints the output of <code>ls</code> on the terminal.</p>
+
+<h5>os.rename(src, dst)</h5>
+
+<p>This renames any file. <code>src</code> should be the path of the existing file and <code>dst</code> should be the path to the new file.</p>
+
+<h5>os.uname()</h5>
+
+<p><code>uname()</code> returns information about the operating system. </p>
+
+<p><code>os</code> has documentation <a href="https://docs.python.org/3/library/os.html">here</a>.</p>
+
+<p><a name="math"></a></p>
+
+<h4>math</h4>
+
+<p>Python has a library that performs basic math functions such as logarithms and trig functions. It also has several constants. For instance:</p>
+
+<pre><code>import math
+
+pi = math.pi
+inf = math.inf
+e = math.e
+
+math.cos(pi) # is -1
+math.sqrt(16) # is 4
+math.log(e) # is 1; log defaults to ln()
+</code></pre>
+
+<p>You can see more about <code>math</code> <a href="https://docs.python.org/3/library/math.html">here</a>.</p>
+
+<p><a name="stats"></a></p>
+
+<h4>statistics</h4>
+
+<p>The <code>statistics</code> module has all sorts of statistical tools. For instance:</p>
+
+<pre><code>import statistics as stats # I don't want to type statistics over and over again
+stats.mean([1, 2, 5]) # is 2.66666...
+stats.median([1, 2, 5]) # is 2
+stats.stdev([1, 2, 5]) is 2.081665999466133
+</code></pre>
+
+<p>Read more about it <a href="https://docs.python.org/3/library/statistics.html">here</a>.</p>
+
+<p><br/></p>
+
+<p><a name="Style"> </a></p>
+
+<h3>Style</h3>
+
+<p>Python developers are expected to write readable code. Python helps with this due to its design, but we must hold up our end as well. Here are some tips on how to maintain consistent style.</p>
+
+<h4>tabs and spaces</h4>
+
+<p>The Python interpreter cannot tell the difference between tabs and sets of spaces, but it's best to understand which to use and when. For most text editors meant for writing code, tabs are automatically converted to spaces. In Python, this is generally 4 spaces. For our purposes, tabs are easier to write, but if you're working in a text editor that is very simple and does not convert tabs to spaces, it's worth considering using spaces instead. </p>
+
+<h4>wrapping</h4>
+
+<p>Each line of Python should be no longer than 79 characters. This usually does not cause problems, but it's best to try to maintain this standard practice. You may use the <code>\</code> character as a line break when necessary -- python will not read any newlines immediately after the <code>\</code> character </p>
+
+<h4>blank lines</h4>
+
+<p>Add blank lines between functions, classes, and large code blocks. This helps readability. </p>
+
+<h4>comment lines</h4>
+
+<p>Try to put comments on their own lines, unless they're sufficiently short. It is acceptable to write multi-line comments as many separate lines or as multi-line comments using <code>""" """</code>. </p>
+
+<h4>use docstrings</h4>
+
+<p>Just use them.</p>
+
+<h4>use a consistent naming convention</h4>
+
+<p>Most people name functions with <code>lower_case_letters_separated_by_underscores()</code> and classes as <code>CamelCase</code> or <code>camelCase</code>. Personally, I tend to use <code>lowercaseFirstCamels</code> for variables, <code>lower_case_underscored</code> for functions, and <code>CamelCase</code> for classes. </p>
+
+<h4>use spaces after operators</h4>
+
+<p>and commas. The only common exception to this rule is in keyword and default arguments, where there are no spaces between the arguments and their definition operators.</p>
+
+<h4>use normal characters</h4>
+
+<p>Unless you're specifically writing a program in a non-latin script language, try to stay within the ASCII character set. </p>

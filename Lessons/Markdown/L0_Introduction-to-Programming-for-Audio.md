@@ -3,6 +3,31 @@
 
 <br/>
 
+### Contents
+
+1. [Goals](#Goals)
+2. [What is a Computer?](#Computer)
+3. [What is a Programming Language?](#Language)
+4. [Why should I learn to code (in Python)](#Why)
+5. [How to use the Terminal](#Terminal)
+6. [Programming Baiscs](#Basics)
+	* [Variables](#vars)
+	* [Operators](#ops)
+	* [Control Flow](#flow)
+	* [Functions](#funcs)
+7. [Appendix A: Git](#AppA)
+	* [Making a new Repository](#newRepo)
+	* [Logging Changes](#log)
+	* [Updating from Github](#pull)
+	* [Staging and Committing](#stage)
+	* [Pushing to Remotes](#remotes)
+	* [Branches](#branches)
+	* [Other Resources](#other)
+8. [Appendix B: Digital Audio Review](#AppB)
+9. [Appendix C: Processors Review](#AppC)
+10. [Appendix D: Words to Know](#AppD)
+
+<a name="Goals"> </a>
 ### Goals
 
 By the end of this lesson, you'll:
@@ -11,8 +36,13 @@ By the end of this lesson, you'll:
 * Understand the very basics of computing at a low level
 * Learn about some of the uses of software in audio
 * Learn the basics of the Mac and/or Linux command line (Terminal)
+* 15-minute programming overview 
+* Appendix A: Git
+* Appendix B: Digital Audio Review
+* Appendix C: Processors Review
+* Appendix D: Words to Know
 
-
+<a name="Computer"> </a>
 ### What is a Computer?
 
 While this may be review for some people, let's clarify exactly how our computer works. 
@@ -29,7 +59,7 @@ A crucial thing to understand is that when we write code in Python (or any other
 
 The processor actually only understands **machine langauge** or **machine code**. Each different brand and model of processor has its own machine language, and they are all expressed in literal 1's and 0's. The intricacies of how this works are irrelevent, but we need to understand the difference between writing machine language and writing something like Python. 
 
-
+<a name="Langauge"> </a>
 ### What is a Programming Language? 
 
 A programming language is a way of instructing a computer to perform specific operations and tasks.
@@ -70,6 +100,7 @@ A programming language is a means of instructing a computer to perform specific 
 
 Python is among the highest-level languages around. In Python, you never need to interact directly with the hardware. This will make learning it much easier than something like C or an assembler. 
 
+<a name="Why"> </a>
 ### Why should I learn to code (in Python)? 
 
 Besides simply the joy of learning something new, programming can be valuable to everyone, even musicians and producers. For one thing, many positions at music tech companies use Python, either as a means of analyzing data, automating tasks such as advertisement campaigns, and testing music software. Python is even increasingly becoming popular in the web development world. 
@@ -83,6 +114,7 @@ Python is among the leading languages of the Machine Learning world, which opens
 Even if you aren't interested in working for tech companies, learning Python can be very valuable to all sorts of employers, from advertising companies that need to analyze datasets of advertisement interactions to stores that need to keep track of their inventories.
 
 
+<a name="Terminal"> </a>
 ### How to use the Terminal
 
 First, let’s get familiar with the terminal. The terminal is a way for you to interact with your computer with very simple instructions.
@@ -140,11 +172,17 @@ This is just a very basic introduction, but the Terminal is great, and can be us
 
 
 
+<a name="Basics"> </a>
+### 15-minute Programming Basics 
 
-### Appendix A: 15-minute Programming Basics - For Future Reference. 
+* [Variables](#vars)
+* [Operators](#ops)
+* [Control Flow](#flow)
+* [Functions](#funcs)
 
 Here are a few very quick concepts that will be part of almost any programming language you learn. We'll learn them in Python soon. This should be used as a reference and not thought of as an introduction to these concepts. 
 
+<a name="vars"> </a>
 #### Variables
 
 A **variable** is a place where we store a piece of information. For instance, if we're making a clock, we'd have to store the time in hours, minutes, and seconds: `time_hours = 12` `time_minutes = 23` `time_seconds = 41` would represent the time 12:23:41.
@@ -153,6 +191,7 @@ All variables have a **type**, which tells the computer how the variable should 
 
 Some languages like C require that you tell it what type you're using in advance, while Python tries to figure it out without your input.
 
+<a name="ops"> </a>
 #### Operators
 
 **Operators** are symbols that represent actions or processes. We know a bunch of operators because they're very intuitive: `1 + 2` uses the `+` operator, which represents the process of addition. In english, we could say "the `+` operator should give me the sum of the number before it and the number after it". The same goes for `-` for subtraction, `*` for multiplication, and `/` for division. Commonly, `**` is used for exponents, so that `4**2` is "four squared" or `16`.
@@ -174,7 +213,7 @@ Other common boolean operators are `xor`, and `nand`, which are both built on th
 
 **Comparators** are a type of operator that compares two or more values. For instance, `a == b` checks whether `a` is equal to `b`, returning `True` if they are equivalent, and `False` if they are not. Other comparators are: `<`, `<=`, `>`, `>=`, and `!=`. The first four should be relatively evident, and `a != b` is equivalent to `not (a == b)`, returning `True` if `a` is not equal to `b` and `False` otherwise.
 
-
+<a name="flow"> </a>
 #### Control Flow
 
 **Control flow** is the order in which statements are processed. This order can normally be manipulated with `if` statements, `if...else` statements, and `if...elif...else` statements. During the program's execution, when an `if` statement comes up, the following block of code will be executed only if whatever follows the `if` statement is `True`. For instance, 
@@ -218,15 +257,117 @@ This program would print `hey!` because `2` is not equal to `1` and because `2` 
 	else:
 		print "goodbye."
 		
-This program would print `goodbye.` because `3` is not equal to `1` or `2`. 
-
+This program would print `goodbye.` because `3` is not equal to `1` or `2`.
+ 
+<a name="funcs"> </a>
 #### Functions
 
 **Functions** are blocks of code that you plan to use later. They can have **arguments**, or variables that they depend on, and they can have **results** which can be passed on.
 
 Functions are not run unless they are called. You can have a huge function at the top of your file but if you never tell it to run (call, or invoke it) it will lay dormant. Functions are normally called like this: if you have a function `f(a)` with one argument `a`, you would run it with `f(1)` or `f(10124012)`. The point is you can change the argument and it will change the behavior of the function. We'll discuss functions at length while introducing Python.
 
+<a name="AppA"> </a>
+### Appendix A: Git
 
+* [Making a new Repository](#newRepo)
+* [Logging Changes](#log)
+* [Updating from Github](#pull)
+* [Staging and Committing](#stage)
+* [Pushing to Remotes](#remotes)
+* [Branches](#branches)
+* [Other Resources](#other)
+
+Git is a backup and collaboration tool for individuals and groups working together on software and hardware projects. GitHub is a particular platform on which a user can make use of Git features. 
+
+Git repositories can be interacted with both via the command line and via the GitHub Desktop app, but most users become proficient with using the command line because it doesn't require you to download an extra piece of software and can be used on remote servers where you don't have access to anything but a terminal.
+
+Git does this by recording the changes you've made to a file rather than the file itself. This is why a focus is put on the lines added and removed from a project during any commit. This system makes two things easier: First, a user can revert to any previous commit. Say your software worked well yesterday, but now it's broken. If you're simply editing a file on your computer, you have no way of looking through your past actions. With Git, you can simply use `git revert` to revert to a previous commit. Second, GitHub doesn't need to store large amounts of data to store simple changes, as it only records the differences between files as opposed to the files themselves. These differences can be read directly using `git diff`, which is useful to check the differences between files.
+
+ 
+<a name="newRepo"> </a>
+#### Making a New Repository 
+
+A new Repository (Repo) can be created by executing 
+`git init` 
+in the directory where you'd like your repo to be stored locally. 
+
+On Github Desktop, the same action can be performed by clicking "Current Repository" on the top left, and then "add", and then "create new repository".
+
+A repo can also be downloaded from github using `git clone` followed by the URL of the GitHub page you'd like to download. This differs from simply downloading the project in that the cloned repository can be edited and changed from your machine.
+
+On Github Desktop, the same action can be perforemd by clicking "Current Repository on the top left, and then "add", and then "clone repository". This will allow you to input the URL of the GitHub repo you'd like to clone and the destination you'd like to clone it to.
+
+ 
+<a name="logs"> </a>
+#### Logging Changes
+
+Git has a simple feature that allows you to see the previous commits of a project. In a local GitHub repo, execute `git log` to see the log of previous commits. 
+
+On Github Desktop, the same feature is available in the "History" pane.
+
+ 
+<a name="pull"> </a>
+#### Updating from GitHub
+
+The changes made by other users to a repository aren't automatically downloaded to your computer. To initiate this process, the user must run `git pull` in a git repository. 
+
+Whenever your repository is behind the online copy in Github Desktop, a "Fetch Origin" button appears on the top right, allowing you to achieve the same functionality. 
+
+note: `git pull` actually performs `git fetch` and then `git merge`, changing your local repository to match the copy on the web. If you'd just like to see what's new on the web copy without changing your content, simply run `git fetch`.
+
+ 
+<a name="stage"> </a>
+#### Staging and Committing
+
+While it might seem from using Github Desktop that committing is simply a transaction between the folder on your computer and the copy on the web, it is actually a little more complicated than that. 
+
+Before a commit is put on the internet at all, two things happen:
+
+* First, the changes are staged for committing. This is done with `git add`. It can either specify a certain file or all files in the directory. For instance, if you only want to commit changes to a specific folder within your repository, say "myFolder", you could run `git add myFolder`. If you instead wanted to stage all changes to commit them, you could run `git add .`, where `.` is the terminal's way of saying "this folder". This is called staging because `git add` stages changes to be committed.
+
+* Next, the changes are committed to HEAD using `git commit`. All commits should be given a message describing why they're being made for future reference, and this is done with `git commit -m "put your message here"`. This also doesn't change anything on the web at all. It simply changes the local representation of the repository on your computer, at a location called HEAD. This is called committing because `git commit` updates your computer's tree of edits that have been performed on a repository. It is stored at .git/head.
+
+
+These are the steps that the "Commit" button does on GitHub Desktop. It doesn't interact with the web at all. Instead, to change the copy on the web (aka the **remote**), we must "push".
+
+ 
+<a name="remotes"> </a>
+#### Pushing to remotes 
+
+The web server that takes your commit and stores it in a long list of commits from various users is called a remote. To actually put your changes on the remote server, you must run `git push origin master`, or replace `master` with the branch of your choice. 
+
+ 
+<a name="branches"> </a>
+#### Branches
+
+One particularly useful feature of Git is the ability to make **branches** which each have a certain feature or property. For instance, if I'm working on the UI of a plugin and my friend is working on the processing inside, we can each make a branch. Then, when we're both done, we can merge these two together. Usually, when working on separate parts of a file or separate files, this merge process goes smoothly. To make a branch, you can use either the GitHub Desktop app or the command line. A project can have many branches that sometimes merge together or break apart. The central branch is called **master** and is where your commits will go if no other branch is specified. branches exist as separate until a `merge` is executed.
+
+To make a branch, you must run `git branch` followed by the name of the new branch.
+
+To make a branch in the Github Desktop app, simply click on "Current Branch" in the top bar and then click "new branch".
+
+To move from one branch to another, you can run `git checkout` followed by the name of the branch. 
+
+To checkout a branch in the Github Desktop app, click "Current Branch" and then click on the branch you'd like to checkout.
+
+To see a list of the branches in your repository, use `git branch --list`.
+
+To delete a branch in your repository, use `git branch -d` followed by the name of the branch to be deleted. Only do this if you know you're okay with losing the contents.
+
+When you're done working on a branch that's separate from the master, you can merge the branch into master. First, use `git diff` followed by the source branch and then the target branch. In this case, if we wanted to merge `mybranch` to `master` we would run `git diff mybranch master`. This would show us the differences between branches, and effectively would allow us to preview the changes that our merge will make. Then, we would make sure we're at the destination branch using `git checkout`. In this case, because we're merging to `master`, we would run `git checkout master`. Then finally we can run `git merge mybranch`. Assuming there are no conflicts between branches, the merge will occur.
+
+To merge a branch on GitHub Desktop, click "Current Branch" and then "Choose a branch to merge into...".
+
+<a name="other"> </a>
+#### Other Resources 
+
+There are many great online guides to Git, from a very simple one [here](http://rogerdudler.github.io/git-guide/) to a slightly more detailed one [here](https://medium.freecodecamp.org/what-is-git-and-how-to-use-it-c341b049ae61). There is also a great [codecademy course](https://www.codecademy.com/learn/learn-git) on Git.
+
+
+
+
+
+<a name="AppB"> </a>
 ### Appendix B: Digital Audio Review
 
 Many of you probably already understand this, but I'll review the basics of Digital Audio for those who are new to the idea. 
@@ -244,6 +385,11 @@ This means that an audio file is just a long stream of numbers between -1.0 and 
 Upon playback, the digital signal is converted back into an analog signal in the **Digital-Analog Converter (DAC)**, which takes our digital file and recreates an analog equivalent. 
 
 
+
+
+
+
+<a name="AppC"> </a>
 ### Appendix C: Processers Review
 
 While most of you have used these tools, it's worth rehashing. 
@@ -260,7 +406,7 @@ While most of you have used these tools, it's worth rehashing.
 
 #### Pitch Shift
 
-
+<a name="AppD"> </a>
 ### Appendix D: Words to Know
 
 * Instance. An instance is one particular occurrence of a program or a function. 

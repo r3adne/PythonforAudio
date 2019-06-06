@@ -109,4 +109,49 @@ We can see that continuing to add clients would prove difficult. Now, in reality
 		
 	
 	
-Essentially, what we're trying to do here is reframe the program around the account holders. This makes sense to us because in the real world we consider each thing we experience as an object. 
+Essentially, what we're trying to do here is reframe the program around the account holders. This makes sense to us because in the real world we consider each thing we experience as an object. In this case, each account could be a virtual "object" which has certain properties -- **attributes**. It also has certain functions that are only needed within the context of the object itself -- **methods**.
+
+In Python, defining classes is much like defining functions. Let's look at a hypothetical program which serves the same functionality as above using classes:
+
+	class Account:
+	    def __init__(self, accountNumber, initialAmount):
+	        self.accountNumber = accountNumber
+	        self.balance = initialAmount 
+	        self.inDebt = False
+	    
+	    def debtupdate(self):
+	        """ Updates debt status """
+	        if self.balance < 0:
+	            self.inDebt = True
+	        else:
+	            self.inDebt = False
+	
+	    def withdraw(self, amount):
+	        """ withdraws amount from account """
+	        self.balance -= amount
+	        self.debtupdate()
+	    
+	    def deposit(self, amount):
+	        """ deposits amount into account """
+	        self.balance += amount
+	        self.debtupdate()
+ 
+	
+Now we can make accounts like this:
+
+	DwightsAccount = Account(12345, 100) # makes a new account with number 12345 and balance $100.
+	
+	print("Dwight has ${} in his account".format(DwightsAccount.balance))
+	print("Dwight's debt status is {}".format(DwightsAccount.inDebt))
+	
+	DwightsAccount.deposit(100)
+	
+	print("We have added $100 to Dwight's account. His balance is now ${}".format(DwightsAccount.balance))
+	
+	DwightsAccount.withdraw(1000)
+	
+	print("Dwight spent $1000 on renewing his crane operating license. His balance is now ${}".format(DwightsAccount.balance))
+	print("Dwight's debt status is now {}".format(DwightsAccount.inDebt))
+	
+Let's try to run `L3-0.py` in the `PythonFiles` directory.
+	

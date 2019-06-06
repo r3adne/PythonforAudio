@@ -1,0 +1,140 @@
+<h1>External Modules in Python</h1>
+
+<h4>Zachary Lewis-Towbes; BerkleeMakes; June 2019</h4>
+
+<h3>Installing PIP</h3>
+
+<p>While we often use the <code>import</code> command to reuse our own code, we can also use it to use external modules made by other groups of programmers. </p>
+
+<p>To do this, we will install pip, the Package Installer for Python. Run these lines on your terminal:</p>
+
+<p><code>cu https://bootstrap.pypa.io/get-pip.py -o get-pip.py</code></p>
+
+<p><code>python3 get-pip.py</code></p>
+
+<p><code>pip install --upgrade pip</code></p>
+
+<p>Now we can install any package with:</p>
+
+<p><code>pip install &lt;name of package&gt;</code></p>
+
+<p>We'll start with a few basic packages:</p>
+
+<p><code>pip install numpy</code></p>
+
+<p><code>pip install scipy</code></p>
+
+<p><code>pip install matplotlib</code></p>
+
+<p><code>pip install librosa</code></p>
+
+<p><code>pip install pydub</code></p>
+
+<p>Now, even though these files aren't in the same directory as our python file, we can use <code>import</code> to use the functions inside these files. This is because they are installed <strong>globally</strong>. </p>
+
+<h3>Module Basics</h3>
+
+<p>We will review the functionality of each of these modules below, along with a few modules that we have installed by default:</p>
+
+<h4>Numpy</h4>
+
+<p>Numpy is a python library for scientific computing in Python. It offers great array objects, which are like lists but faster and feature easy multi-dimensional functionality. These are called <code>numpy.ndarray</code>. They have a great pseudorandom number generator, <code>numpy.random</code>. There's also a great fft algorithm, <code>numpy.fft</code>. For the time being, we'll just cover the random and ndarray functionality, but we'll discuss the fft in the future. </p>
+
+<p>Note: the <code>import</code> function allows us to change the name we use to reference the file. Due to how common Numpy is, many people use <code>import numpy as np</code> and then refer to numpy as <code>np</code>. </p>
+
+<h5>numpy.ndarray</h5>
+
+<p>Numpy's array objects are different than lists because they are faster. We can discuss why later, but numpy arrays are much better for audio because of their increased speed. They also have a data type that must be declared.</p>
+
+<p>Let's make an array like this:</p>
+
+<pre><code>import numpy
+
+a = numpy.ndarray([[1, 2, 3], [4, 5, 6]], numpy.int32]
+</code></pre>
+
+<p>We've just made a two-dimensional array with 32-bit integer data type. Let's look at the size of the array.</p>
+
+<pre><code>print(a.shape)
+</code></pre>
+
+<p>Shows us <code>(2, 3)</code>. This makes sense because if we think about the array graphically, we might see:</p>
+
+<pre><code>[1, 2, 3],
+[4, 5, 6]
+</code></pre>
+
+<p>This is 2 units tall and three across. </p>
+
+<p>Just as a simple example, if we had audio samples as two separate stereo streams:</p>
+
+<pre><code># L samples [0.12034, -0.12499, 0.95323, 0.15924, 0.51942, -0.59342]
+# R samples [-0.51243, -0.01294, 0.59322, 0.12494, 0.12483, 0.12948]
+
+# Let's make this stereo file a numpy array
+
+a = numpy.array([[0.12034, -0.12499, 0.95323, 0.15924, 0.51942, -0.59342], [-0.51243, -0.01294, 0.59322, 0.12494, 0.12483, 0.12948]], numpy.float32)
+
+print(a.shape)
+</code></pre>
+
+<p>gives us <code>(2, 6)</code> </p>
+
+<p>Let's say we have an algorithm that expects a stereo file in the opposite configuration, where each sample is formatted <code>[[left sample 0, right sample 0], [left sample 1, right sample 1], ... [left sample n, right sample n]]</code></p>
+
+<p>In other words, we want to change </p>
+
+<pre><code>[[0.12034, -0.12499, 0.95323, 0.15924, 0.51942, -0.59342],
+[-0.51243, -0.01294, 0.59322, 0.12494, 0.12483, 0.12948]]
+</code></pre>
+
+<p>to</p>
+
+<pre><code>[[ 0.12034, -0.51243],
+[-0.12499, -0.01294],
+[ 0.95323,  0.59322],
+[ 0.15924,  0.12494],
+[ 0.51942,  0.12483],
+[-0.59342,  0.12948]]
+</code></pre>
+
+<p>This is another way of saying that we want our shape to be <code>(6, 2)</code> instead of <code>(2, 6)</code>. In Linear Algebra, this is called Transform. We can invoke this using <code>.T</code>:</p>
+
+<pre><code>b = a.T
+print(b.shape)
+</code></pre>
+
+<p>gives us <code>(6, 2)</code></p>
+
+<h5>numpy.random</h5>
+
+<p>numpy.random is a library that gives us pseudorandom numbers. We say pseudorandom because it's impossible to be completely random when generating numbers in a computer. Numpy.random has some of the best random number generators avaliable to python. There are many different ways to generate random numbers, and we'll describe three.</p>
+
+<pre><code>import numpy
+
+numpy.random.random()
+
+numpy.random.randint(0, high = 10)
+
+numpy.random.choice([1, 12, 190, 4129, 1384192])
+</code></pre>
+
+<p><code>numpy.random.random()</code> gives a random float between 0 and 1. </p>
+
+<p><code>numpy.random.randint(low, high = high)</code> gives a random integer between low and high if high is given.</p>
+
+<p><code>numpy.random.choice(list)</code> gives us a random value from the list given. </p>
+
+<p>There are many other ways to generate random numbers, and you can read about them in the documentation. </p>
+
+<h4>Scipy</h4>
+
+<h4>Matplotlib</h4>
+
+<p>Matplotlib is the go-to library for graphing and plotting data in Python. </p>
+
+<h4>Librosa</h4>
+
+<p>Librosa is a fantastic library for music information retrieval, i.e. anaylsis of music. It has loading and saving utilities, oscillators, resampling algorithms, ffts and related spectral techniques, loudness measurements, and time/pitch warping. Much of this we can (and will) figure out how to implement ourselves, but if we just need to get something up and running, we should do so through librosa. </p>
+
+<h4>PyDub</h4>
