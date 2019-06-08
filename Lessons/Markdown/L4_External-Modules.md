@@ -1,6 +1,17 @@
 # External Modules in Python
 #### Zachary Lewis-Towbes; BerkleeMakes; June 2019
 
+### Contents
+
+* [Installing PIP](#pip)
+* [Module Basics](#basics)
+	* [NumPy](#numpy)
+	* [Scipy](#scipy)
+	* [MatPlotLib](#mpl)
+	* [Librosa](#librosa)
+	* [PyDub, an Introduction](#pydub)
+
+<a name="pip"></a>
 ### Installing PIP
 
 While we often use the `import` command to reuse our own code, we can also use it to use external modules made by other groups of programmers. 
@@ -31,11 +42,12 @@ We'll start with a few basic packages:
 
 Now, even though these files aren't in the same directory as our python file, we can use `import` to use the functions inside these files. This is because they are installed **globally**. 
 
-
+<a name="basics"></a>
 ### Module Basics
 
 We will review the functionality of each of these modules below, along with a few modules that we have installed by default:
 
+<a name="numpy"></a>
 #### Numpy
 
 Numpy is a python library for scientific computing in Python. It offers great array objects, which are like lists but faster and feature easy multi-dimensional functionality. These are called `numpy.ndarray`. They have a great pseudorandom number generator, `numpy.random`. There's also a great fft algorithm, `numpy.fft`. For the time being, we'll just cover the random and ndarray functionality, but we'll discuss the fft in the future. 
@@ -120,20 +132,21 @@ numpy.random is a library that gives us pseudorandom numbers. We say pseudorando
 
 There are many other ways to generate random numbers, and you can read about them in the documentation. 
 
-
+<a name="scipy"></a>
 #### Scipy
 
 
 
-
+<a name="mpl"></a>
 #### Matplotlib
 
 Matplotlib is the go-to library for graphing and plotting data in Python. 
 
-
+<a name="librosa"></a>
 #### Librosa
 
 Librosa is a fantastic library for music information retrieval, i.e. anaylsis of music. It has loading and saving utilities, oscillators, resampling algorithms, ffts and related spectral techniques, loudness measurements, and time/pitch warping. Much of this we can (and will) figure out how to implement ourselves, but if we just need to get something up and running, we should do so through librosa. 
 
 
+<a name="pydub"></a>
 #### PyDub

@@ -28,7 +28,7 @@
 	* [If, Elif, and Else](#If)
 	* [Loops](#Loops)
 	* [Functions](#Functions)
-	* [Review](#Review)
+5. [Review](#Review)
 
 <a name="Goals"> </a>
 ### Goals  

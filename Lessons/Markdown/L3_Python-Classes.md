@@ -155,3 +155,28 @@ Now we can make accounts like this:
 	
 Let's try to run `L3-0.py` in the `PythonFiles` directory.
 	
+
+### \_\_init__()
+
+The \_\_init__() method **initializes** the class. It must have a few characteristics:
+
+* Its first argument should be `self`. When in a class, we refer to the class itself as `self`.
+
+* It must be titled exactly `__init__()`, with exactly two underscores on each side. We'll discuss why later.
+
+* It can take any number of additional arguments that are used to initialize the class. See the example above. 
+
+
+### Methods and Attributes
+
+\_\_init__() is a special kind of function called a **method**. Methods are functions belonging to the class. They must take the instance of the class itself as the first argument, using `self`. 
+
+**attributes** are variables that belong to the class. In the above example, `Account.accoutnNumber`, `Account.balance`, and `Account.inDebt` are each attributes. 
+
+To use methods and access attributes, we use the `.` operator.
+
+### The Membership Operator
+
+One thing to keep in mind regarding classes, 
+
+
