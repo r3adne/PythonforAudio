@@ -110,4 +110,71 @@ def addAccount(accountNumber, initialAmount):
     inDebt[accountNumber] = False
 </code></pre>
 
-<p>Essentially, what we're trying to do here is reframe the program around the account holders. This makes sense to us because in the real world we consider each thing we experience as an object. </p>
+<p>Essentially, what we're trying to do here is reframe the program around the account holders. This makes sense to us because in the real world we consider each thing we experience as an object. In this case, each account could be a virtual "object" which has certain properties -- <strong>attributes</strong>. It also has certain functions that are only needed within the context of the object itself -- <strong>methods</strong>.</p>
+
+<p>In Python, defining classes is much like defining functions. Let's look at a hypothetical program which serves the same functionality as above using classes:</p>
+
+<pre><code>class Account:
+    def __init__(self, accountNumber, initialAmount):
+        self.accountNumber = accountNumber
+        self.balance = initialAmount 
+        self.inDebt = False
+
+    def debtupdate(self):
+        """ Updates debt status """
+        if self.balance &lt; 0:
+            self.inDebt = True
+        else:
+            self.inDebt = False
+
+    def withdraw(self, amount):
+        """ withdraws amount from account """
+        self.balance -= amount
+        self.debtupdate()
+
+    def deposit(self, amount):
+        """ deposits amount into account """
+        self.balance += amount
+        self.debtupdate()
+</code></pre>
+
+<p>Now we can make accounts like this:</p>
+
+<pre><code>DwightsAccount = Account(12345, 100) # makes a new account with number 12345 and balance $100.
+
+print("Dwight has ${} in his account".format(DwightsAccount.balance))
+print("Dwight's debt status is {}".format(DwightsAccount.inDebt))
+
+DwightsAccount.deposit(100)
+
+print("We have added $100 to Dwight's account. His balance is now ${}".format(DwightsAccount.balance))
+
+DwightsAccount.withdraw(1000)
+
+print("Dwight spent $1000 on renewing his crane operating license. His balance is now ${}".format(DwightsAccount.balance))
+print("Dwight's debt status is now {}".format(DwightsAccount.inDebt))
+</code></pre>
+
+<p>Let's try to run <code>L3-0.py</code> in the <code>PythonFiles</code> directory.</p>
+
+<h3>__init__()</h3>
+
+<p>The __init__() method <strong>initializes</strong> the class. It must have a few characteristics:</p>
+
+<ul>
+<li><p>Its first argument should be <code>self</code>. When in a class, we refer to the class itself as <code>self</code>.</p></li>
+<li><p>It must be titled exactly <code>__init__()</code>, with exactly two underscores on each side. We'll discuss why later.</p></li>
+<li><p>It can take any number of additional arguments that are used to initialize the class. See the example above. </p></li>
+</ul>
+
+<h3>Methods and Attributes</h3>
+
+<p>__init__() is a special kind of function called a <strong>method</strong>. Methods are functions belonging to the class. They must take the instance of the class itself as the first argument, using <code>self</code>. </p>
+
+<p><strong>attributes</strong> are variables that belong to the class. In the above example, <code>Account.accoutnNumber</code>, <code>Account.balance</code>, and <code>Account.inDebt</code> are each attributes. </p>
+
+<p>To use methods and access attributes, we use the <code>.</code> operator.</p>
+
+<h3>The Membership Operator</h3>
+
+<p>One thing to keep in mind regarding classes, </p>

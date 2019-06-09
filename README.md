@@ -110,6 +110,13 @@ In Progress.
 <br/>
 <br/>
 
+## Videos
+
+The video from week 1 (L0-L1) is [here](https://youtu.be/2wfY5RtgLiw).
+
+Note: I will update this each week. 
+
+
 ## Other
 
 !For editor: run .htmlify.sh in ./Lessons/Markdown/ to convert all markdown files to HTMLs.
