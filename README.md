@@ -120,3 +120,6 @@ Note: I will update this each week.
 ## Other
 
 !For editor: run .htmlify.sh in ./Lessons/Markdown/ to convert all markdown files to HTMLs.
+
+This software is under the GNU GPL. In short, you may reuse it if and only if you do not make money from it. See the license at ./.LICENSE.txt
+

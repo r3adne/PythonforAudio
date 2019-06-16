@@ -16,6 +16,7 @@ import matplotlib.pyplot as plt
 
 class LearningRecording:
     def __init__(self, path):
+        """ docstring """
         
         # defines self.path
         self.path = os.path.join(data_path, path)
@@ -35,8 +36,7 @@ class LearningRecording:
         else: 
             print('loading failed on {}'.format(self.path))
 
-
-        self.nsamples = len(self.audio)
+        self.nsamples = len(self.audio) #this is the number of audio samples
         self.image = None
 
 

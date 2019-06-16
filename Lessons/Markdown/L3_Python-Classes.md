@@ -177,6 +177,40 @@ To use methods and access attributes, we use the `.` operator.
 
 ### The Membership Operator
 
-One thing to keep in mind regarding classes, 
+One thing to keep in mind regarding classes is that each instance of a class may have different attribute values. For instance, if we continued our previous class `Account` below:
 
+	a = Account(14023, 100)
+	b = Account(41202, 200)
+
+We notice that accounts `a` and `b` have different balances. `a` should have $100 in it and `b` should have $200. 
+
+So, to access the balance of each, we must use the membership operator. 
+
+This operator asks for an object's attribute or method. So in this case, to get `a`'s balance, we would use:
+
+	a.balance
+
+and to get `b`'s balance we would use:
+	
+	b.balance
+	
+The `.` being used here is the membership operator. It is used as such:
+
+	n.m
+
+where `n` is an object (user-defined class or built-in object) and `m` is an attribute of that object; or:
+
+
+	n.m()
+	
+where `n` is an object and `m()` is a method of that object.
+
+In short, when you're trying to access the methods or attributes of a class, use `.`.
+
+
+### Why should we learn this?
+
+Classes might seem very complicated, and they are. You won't need to use them all too often in your own work unless you plan on working on large-scale projects. 
+
+We must learn about them in order to use other, open-source Python libraries that are made entirely of classes. 
 
