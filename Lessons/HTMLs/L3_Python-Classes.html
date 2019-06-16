@@ -177,4 +177,42 @@ print("Dwight's debt status is now {}".format(DwightsAccount.inDebt))
 
 <h3>The Membership Operator</h3>
 
-<p>One thing to keep in mind regarding classes, </p>
+<p>One thing to keep in mind regarding classes is that each instance of a class may have different attribute values. For instance, if we continued our previous class <code>Account</code> below:</p>
+
+<pre><code>a = Account(14023, 100)
+b = Account(41202, 200)
+</code></pre>
+
+<p>We notice that accounts <code>a</code> and <code>b</code> have different balances. <code>a</code> should have $100 in it and <code>b</code> should have $200. </p>
+
+<p>So, to access the balance of each, we must use the membership operator. </p>
+
+<p>This operator asks for an object's attribute or method. So in this case, to get <code>a</code>'s balance, we would use:</p>
+
+<pre><code>a.balance
+</code></pre>
+
+<p>and to get <code>b</code>'s balance we would use:</p>
+
+<pre><code>b.balance
+</code></pre>
+
+<p>The <code>.</code> being used here is the membership operator. It is used as such:</p>
+
+<pre><code>n.m
+</code></pre>
+
+<p>where <code>n</code> is an object (user-defined class or built-in object) and <code>m</code> is an attribute of that object; or:</p>
+
+<pre><code>n.m()
+</code></pre>
+
+<p>where <code>n</code> is an object and <code>m()</code> is a method of that object.</p>
+
+<p>In short, when you're trying to access the methods or attributes of a class, use <code>.</code>.</p>
+
+<h3>Why should we learn this?</h3>
+
+<p>Classes might seem very complicated, and they are. You won't need to use them all too often in your own work unless you plan on working on large-scale projects. </p>
+
+<p>We must learn about them in order to use other, open-source Python libraries that are made entirely of classes. </p>
