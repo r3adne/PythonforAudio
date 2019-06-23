@@ -3,7 +3,6 @@
 
 ### Contents
 
-* [Installing PIP](#pip)
 * [Module Basics](#basics)
 	* [NumPy](#numpy)
 	* [Scipy](#scipy)
@@ -11,36 +10,6 @@
 	* [Librosa](#librosa)
 	* [PyDub, an Introduction](#pydub)
 
-<a name="pip"></a>
-### Installing PIP
-
-While we often use the `import` command to reuse our own code, we can also use it to use external modules made by other groups of programmers. 
-
-To do this, we will install pip, the Package Installer for Python. Run these lines on your terminal:
-
-`cu https://bootstrap.pypa.io/get-pip.py -o get-pip.py`
-
-`python3 get-pip.py`
-
-`pip install --upgrade pip`
-
-Now we can install any package with:
-
-`pip install <name of package>`
-
-We'll start with a few basic packages:
-
-`pip install numpy`
-
-`pip install scipy`
-
-`pip install matplotlib`
-
-`pip install librosa`
-
-`pip install pydub`
-
-Now, even though these files aren't in the same directory as our python file, we can use `import` to use the functions inside these files. This is because they are installed **globally**. 
 
 <a name="basics"></a>
 ### Module Basics

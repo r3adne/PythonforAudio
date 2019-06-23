@@ -8,6 +8,7 @@
 1. [Goals](#Goals)
 2. [Installing Python](#Install)
 2. [Installing VSCode](#Code)
+3. [Installing PIP](#PIP)
 3. [Programming in Python](#Programming)
 	* [The Python Langauge](#Lang)
 	* [How to Run Python Code](#Run)
@@ -77,6 +78,35 @@ You should be able to download and install it easily at this link:
 
 
 <br/>
+
+<a name="PIP"></a>
+### Installing PIP
+
+PIP manages our python installation and external modules. We'll learn about external modules later.
+
+`cu https://bootstrap.pypa.io/get-pip.py -o get-pip.py`
+
+`python3 get-pip.py`
+
+`pip install --upgrade pip`
+
+Now we can install any package with:
+
+`pip install <name of package>`
+
+We'll start with a few basic packages:
+
+`pip install numpy`
+
+`pip install scipy`
+
+`pip install matplotlib`
+
+`pip install librosa`
+
+`pip install pydub`
+
+
 
 <a name="Programming"></a>
 ## Programming in Python 

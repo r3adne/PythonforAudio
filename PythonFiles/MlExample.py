@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 
 class LearningRecording:
     def __init__(self, path):
-        """ docstring """
+        """Instatntiates LearningRecording object """
         
         # defines self.path
         self.path = os.path.join(data_path, path)
@@ -41,6 +41,7 @@ class LearningRecording:
 
 
     def makeImage(self, maxNumSamp, spectSize=1024):
+        """Creates an image out of the LearningRecording"""
         if self.nsamples < maxNumSamp: # if the clip is shorter than the longest clip:
             # np.pad(self.audio, (0, maxNumSamp - self.nsamples), mode='constant', constant_values=(0.,0.))
             self.audio = np.append(self.audio, np.zeros((maxNumSamp - self.nsamples,)), axis = 0)

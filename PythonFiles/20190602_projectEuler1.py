@@ -2,6 +2,7 @@
 
 sum = 0
 for i in range(1000): # this is wrong
+    # i = 15
     if i % 3 == 0: # if i is divisible by 3
         sum += i 
     if i % 5 == 0: # if i is divisible by 5
