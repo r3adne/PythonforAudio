@@ -84,7 +84,7 @@ You should be able to download and install it easily at this link:
 
 PIP manages our python installation and external modules. We'll learn about external modules later.
 
-`cu https://bootstrap.pypa.io/get-pip.py -o get-pip.py`
+`curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py`
 
 `python3 get-pip.py`
 

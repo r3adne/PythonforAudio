@@ -14,3 +14,12 @@ import librosa
 #
 # Using this function, print the first 10 samples from the audio file "E3_0.wav" from the "AudioFiles" directory.
 
+
+
+# librosa.core.load(path, sr=22050, mono=True, offset=0.0, duration=None, dtype=<class 'numpy.float32'>, res_type='kaiser_best')
+
+# returns (audio time series, sampling rate)
+
+samples, SR = librosa.core.load('../AudioFiles/E3_0.wav', sr=44100)
+
+print(samples[0:100])
