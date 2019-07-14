@@ -96,7 +96,7 @@ def feedback_delay(samples, time_seconds, SR, mix, feedback):
     return out
 
 
-# This implementation is pretty clunky and slow. It's not intuitive to our sense of feedback. This also is slower because we have to loop through the same feedback samples repeatedly. For instance, take a delay of `n = 4410` samples at `SR = 44100`, and if our samples buffer is 441,000 samples (10 seconds long). When we reach the sample `sample_number = 4410 * 5 = 22050`, our inner for loop will call up the samples 4410 samples ago 5 times -- 17640, 13230, 8820, 4410, and 0. In the next example, we solve this more intuitively and in a way that is more similar to normal real-time implementations.
+# This implementation is pretty clunky and slow. It's not intuitive to our sense of feedback. This also is slower because we have to loop through the same feedback samples repeatedly. For instance, take a delay of `n = 4410` samples at `SR = 44100`, and if our samples buffer is 441,000 samples (10 seconds) long, when we reach the sample `sample_number = 4410 * 5 = 22050`, our inner for loop will call up the samples 4410 samples ago 5 times -- 17640, 13230, 8820, 4410, and 0. In the next example, we solve this more intuitively and in a way that is more similar to normal real-time implementations.
 
 ### The Circular Buffer Delay ### 
 # The circular buffer is a list that represents the delayed samples. Here's how we use it to make a delay. 
