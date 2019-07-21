@@ -16,7 +16,7 @@ import time
 
 
 raw_songs = []
-with open('billboard_lyrics.csv') as f:
+with open('/Users/zt/data/lyrics/billboard_lyrics.csv') as f:
     for i in range(5100): # this is how many songs are in the dataset...
         try:
             raw_songs.append(f.readline().split(','))
@@ -24,13 +24,13 @@ with open('billboard_lyrics.csv') as f:
             print('not sure why this error is coming up, but it should be fine.' + str(err))
 
 
-# let's make sure every part of this dataset is properly input -- if there are any songs in the list songs that don't have 6 items, they are errors. I had some random error with song number 87. I have no idea why, and couldn't see any decent solution, so I just excluded it.
+# let's make sure every part of this dataset is properly input -- if there are any songs in the list songs that don't have 6 items, they are errors. I had some random error with the song titled 'you baby'. I have no idea why, and couldn't see any decent solution, so I just excluded it.
 
 songs = []
 for song in raw_songs:
     if len(song) != 6: 
         print('this song has the wrong number of items... filtering it out')
-    elif song[0] in ['87']:
+    elif song[1] in ['"you baby"']:
         print('this one had some weird text that I don\'t think was right...')
     else:
         songs.append(song)
@@ -50,7 +50,7 @@ for song in songs:
 
 ###### In this example, we'll analyze how often the word word_to_check was used in the songs by year. This is just one example of what we could do with the lyric data.
 
-word_to_check = "love"
+word_to_check = "baby"
 year_to_word = {}
 
 # this sets up our dictionary to have the proper year values so that we can add to them later.
