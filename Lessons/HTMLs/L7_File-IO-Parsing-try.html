@@ -1,0 +1,123 @@
+<h1>File I/O, Parsing Datasets,try...except</h1>
+
+<h4>Zachary Lewis-Towbes; BerkleeMakes; July 2019</h4>
+
+<p>Python has built-in file input and output functionality which can open basically any type of file. Today we'll focus on text files, especially those containing data we plan to process. There are a number of publicly avaliable datasets containing lyrics of pop songs. We'll use one of these. </p>
+
+<h3>Opening files</h3>
+
+<p>Python makes opening files very easy. To open any type of file in python, we use the <code>open()</code> function, which takes one argument -- the path. In this case:</p>
+
+<pre><code>file = open('test_file.txt')
+</code></pre>
+
+<p>opens our datset. With a file open, we can read it in many ways, but the most common is line-by-line. To do this we'll use <code>file.readline()</code>, which simply reads the next unread line from the dataset. Let's try this in the interpreter on test_file.txt, which is in PreparedExamples. </p>
+
+<p>This works just fine, but there's one catch. When opening a file in python like this, python sets aside memory for the entire size of the file. This memory won't be freed up until the program is done executing. For such a small file, that's fine, but we may find datasets that are many gigabytes or larger. </p>
+
+<p>To get around this, we use <code>with ___ as ___:</code> which might look familiar from how we import modules. <code>import numpy as np</code> imports the module <code>numpy</code>, but gives us the name <code>np</code>. The same is true of <code>with ___ as ___:</code>. We specifically use:</p>
+
+<pre><code>with open('song_dataset.csv') as file:
+    # do something to file
+
+# now that we're out of the with statement, the memory we used loading the file is free.
+</code></pre>
+
+<p>This is how we'll do this for our project:</p>
+
+<p>First, we need to define a list of the raw data we'll get out of this, which we'll have to clean further if we run into problems.</p>
+
+<pre><code>raw_songs = []
+with open('billboard_lyrics.csv') as f:
+</code></pre>
+
+<p>Then, we need to load each song. Each song is conveniently formatted as one line. </p>
+
+<pre><code>raw_songs = []
+with open('billboard_lyrics.csv') as f:
+ for i in range(5100):
+    raw_songs.append(f.readline())
+</code></pre>
+
+<p>This makes sense, but we'll run into one problem. Let's try printing out these lines:</p>
+
+<pre><code>raw_songs = []
+with open('billboard_lyrics.csv') as f:
+ for i in range(5100):
+    raw_songs.append(f.readline())
+
+print(raw_songs[0])
+</code></pre>
+
+<p>We actually want a list of each property of the song. To do this, we want to make a list out of the line. Conveniently, Python has a way of splitting strings into lists by a certain character. The <code>String.split()</code> method splits a string based on a character. To split a string of words into a list of each word, we'd split by the <code>' '</code> character. You may notice that this file is split up by the <code>,</code> character. So, instead of the above, we can do this:</p>
+
+<pre><code>raw_songs = []
+with open('billboard_lyrics.csv') as f:
+ for i in range(5100):
+    raw_songs.append(f.readline().split(','))
+
+print(raw_songs[0])
+</code></pre>
+
+<p>I tried this and ran into some sort of error trying to decode the file. This only occurred at a certain line. I'm not sure why, but it's a good opportunity to bring up a new Python idea. </p>
+
+<h3>try...except</h3>
+
+<p>In the past, when we've seen errors in Python, they've meant that we need to stop our execution and fix a problem. Python actually gives us the opportunity to disregard some errors using <code>try:</code> and <code>except:</code>. These can be read as <code>try</code> to do this, <code>except</code> if it doesn't work. </p>
+
+<p>Let's do something we know is wrong, adding a string to an integer. </p>
+
+<pre><code>'a' + 1
+</code></pre>
+
+<p>This gives us the error:</p>
+
+<pre><code>Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+TypeError: can only concatenate str (not "int") to str
+</code></pre>
+
+<p>The important thing here is that it's a <code>TypeError</code>. <code>TypeError</code> is actually just a class that represents an error in Python, so let's use a <code>try: except:</code> clause to catch this error.</p>
+
+<pre><code>try:
+    'a' + 1
+except:
+    print('oops')
+</code></pre>
+
+<p>If we're doing a few things but we're only looking to catch the <code>TypeError</code>, we can do so like this:</p>
+
+<pre><code>try:
+    'a' + 1
+except TypeError:
+    print('oops')
+</code></pre>
+
+<p>Now if we change the <code>TypeError</code> out for a different error, such as <code>IndexError</code>, we'll still get it:</p>
+
+<pre><code>try:
+    b = [0]
+    b[1]
+    'a' + 1
+except TypeError:
+    print('oops')
+</code></pre>
+
+<p>Now, we still get the <code>IndexError</code>, which tells us that we've asked for a list index that is out of range (the list b doesn't have a 1st value, only the 0th.)</p>
+
+<p>The error I kept getting was <code>UnicodeDecodeError</code>, which means the file we read had some weird character that couldn't be decoded. In this case we'll catch the error and print something out, but we won't stop the program.</p>
+
+<pre><code>raw_songs = []
+with open('billboard_lyrics.csv') as f:
+    for i in range(5100): # this is how many songs are in the dataset...
+        try:
+            raw_songs.append(f.readline().split(','))
+        except UnicodeDecodeError: 
+            print('not sure why this error is coming up, but it should be fine.')
+</code></pre>
+
+<p>Finally, <code>try: except:</code> clauses also have a few more options. the only thing we'll use today is <code>else:</code>. If we have a <code>try: except:</code> pair with <code>else:</code> at the end, it will simply execute what's inside the <code>else:</code> only if the <code>try:</code> worked and found no exception.</p>
+
+<h3>Sets</h3>
+
+<p>Python sets are fancy data types that are basically lists without duplicates. Later down the line we'll use <code>list(set())</code> to remove duplicates from a list.</p>
