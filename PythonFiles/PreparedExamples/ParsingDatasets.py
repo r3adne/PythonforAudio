@@ -1,9 +1,5 @@
-import statistics as stats
-import numpy as np 
 import matplotlib
 import matplotlib.pyplot as plt 
-import csv
-import time
 
 
 ####################################
@@ -21,7 +17,8 @@ with open('/Users/zt/data/lyrics/billboard_lyrics.csv') as f:
         try:
             raw_songs.append(f.readline().split(','))
         except UnicodeDecodeError as err: 
-            print('not sure why this error is coming up, but it should be fine.' + str(err))
+            print('not sure why this error is coming up, but it should be fine.\n\n' + str(err))
+            
 
 
 # let's make sure every part of this dataset is properly input -- if there are any songs in the list songs that don't have 6 items, they are errors. I had some random error with the song titled 'you baby'. I have no idea why, and couldn't see any decent solution, so I just excluded it.
@@ -50,7 +47,7 @@ for song in songs:
 
 ###### In this example, we'll analyze how often the word word_to_check was used in the songs by year. This is just one example of what we could do with the lyric data.
 
-word_to_check = "baby"
+word_to_check = "car"
 year_to_word = {}
 
 # this sets up our dictionary to have the proper year values so that we can add to them later.
@@ -68,9 +65,11 @@ for song in songs:
 
 
 years = list(range(1964, 2016))
-values = []
-for year in years:
-    values.append(year_to_word[year])
+values = [year_to_word[year] for year in years]
+
+
+
+
 
 plt.plot(years, values)
 
