@@ -75,7 +75,7 @@ def ternary(x):
 # we can load an audio file, loop through its samples, and run each through each function.
 
 # load in audio file
-y, sr = librosa.core.load('../../AudioFiles/KickOut.wav', mono=True, sr=44100)
+y, sr = librosa.core.load('../../../AudioFiles/KickOut.wav', mono=True, sr=44100)
 
 x = []
 for sample in y:
@@ -106,10 +106,6 @@ for sample in y:
     x.append(ternary(sample))
 
 librosa.output.write_wav('./ternary.wav', np.array(x, dtype=np.float32), sr)
-
-
-
-
 
 hard, soft, arc, squ, tern, line = [], [], [], [], [], []
 
